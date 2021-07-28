@@ -3,15 +3,20 @@ package com.saransh.springblog.web.controller;
 import com.saransh.springblog.service.PostService;
 import com.saransh.springblog.web.model.PostDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by CryptoSingh1337 on 7/27/2021
  */
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/post")
@@ -35,5 +40,22 @@ public class PostController {
                 PageRequest.of(pageNo, PAGE_SIZE),
                 categoryName);
         return ResponseEntity.ok().body(posts);
+    }
+
+    @GetMapping("/id/{postId}")
+    public ResponseEntity<PostDTO> findById(@PathVariable UUID postId) {
+        return ResponseEntity.ok().body(postService.findById(postId));
+    }
+
+    @PostMapping
+    public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO) {
+        PostDTO savedPost = postService.save(postDTO);
+        return ResponseEntity.created(
+            URI.create(
+                    ServletUriComponentsBuilder.fromCurrentRequestUri()
+                            .build().toUriString() +
+                            "/" + savedPost.getId().toString()
+            )
+        ).body(savedPost);
     }
 }
