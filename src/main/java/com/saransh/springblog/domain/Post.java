@@ -37,8 +37,10 @@ public class Post {
     private String img;
     private Long views;
     private Boolean published;
+    @Version
+    private Integer version;
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
+    private List<Comment> comments;
     @ManyToMany
     @JoinTable(
             joinColumns = @JoinColumn(name = "post_id"),
@@ -47,11 +49,15 @@ public class Post {
     private Set<Category> categories = new HashSet<>();
 
     public void addComment(Comment comment) {
+        if (comments == null)
+            comments = new ArrayList<>();
         this.comments.add(comment);
         comment.setPost(this);
     }
 
     public void addCategory(Category category) {
+        if (categories == null)
+            categories = new HashSet<>();
         this.categories.add(category);
     }
 }
