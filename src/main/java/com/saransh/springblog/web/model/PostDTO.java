@@ -20,6 +20,7 @@ public class PostDTO {
 
     private UUID id;
     private String title;
+    private String body;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
     private String img;
