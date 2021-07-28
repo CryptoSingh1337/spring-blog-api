@@ -48,6 +48,11 @@ public class Post {
     )
     private Set<Category> categories = new HashSet<>();
 
+    @PrePersist
+    public void updateCreatedAt() {
+        this.createdAt = LocalDateTime.now();
+    }
+
     public void addComment(Comment comment) {
         if (comments == null)
             comments = new ArrayList<>();
