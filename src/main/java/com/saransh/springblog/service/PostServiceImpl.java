@@ -26,4 +26,11 @@ public class PostServiceImpl implements PostService {
                 .map(postMapper::postToPostDTO)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<PostDTO> findAllByCategory(Pageable pageable, String categoryName) {
+        return postRepository.findAllByCategories_NameIgnoreCase(pageable, categoryName).stream()
+                .map(postMapper::postToPostDTO)
+                .collect(Collectors.toList());
+    }
 }

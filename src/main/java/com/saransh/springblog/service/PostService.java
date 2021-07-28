@@ -11,4 +11,5 @@ import java.util.List;
 
 public interface PostService {
     List<PostDTO> findAll(Pageable pageable);
+    List<PostDTO> findAllByCategory(Pageable pageable, String categoryName);
 }

@@ -5,10 +5,7 @@ import com.saransh.springblog.web.model.PostDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +21,19 @@ public class PostController {
     private final int PAGE_SIZE = 2;
 
     @GetMapping
-    public ResponseEntity<List<PostDTO>> findAll(@RequestParam("page") Integer pageNo) {
+    public ResponseEntity<List<PostDTO>> findAll(@RequestParam("page") int pageNo) {
         List<PostDTO> posts = postService.findAll(PageRequest.of(pageNo, PAGE_SIZE));
+        return ResponseEntity.ok().body(posts);
+    }
+
+    @GetMapping("/{categoryName}")
+    public ResponseEntity<List<PostDTO>> findAllByCategory(
+            @PathVariable String categoryName,
+            @RequestParam("page") int pageNo
+    ) {
+        List<PostDTO> posts = postService.findAllByCategory(
+                PageRequest.of(pageNo, PAGE_SIZE),
+                categoryName);
         return ResponseEntity.ok().body(posts);
     }
 }
