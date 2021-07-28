@@ -1,5 +1,6 @@
 package com.saransh.springblog.boostrap;
 
+import com.saransh.springblog.domain.Category;
 import com.saransh.springblog.domain.Post;
 import com.saransh.springblog.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 public class BootstrapData implements CommandLineRunner {
 
     private final PostRepository postRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -26,6 +28,22 @@ public class BootstrapData implements CommandLineRunner {
 
     private void loadPosts() {
         if (postRepository.count() == 0) {
+            Category technology = Category.builder()
+                    .name("Technology")
+                    .build();
+
+            Category engineering = Category.builder()
+                    .name("Engineering")
+                    .build();
+
+            Category management = Category.builder()
+                    .name("Management")
+                    .build();
+
+            categoryRepository.save(technology);
+            categoryRepository.save(engineering);
+            categoryRepository.save(management);
+
             Post post_1 = Post.builder()
                     .title("What is Lorem Ipsum?")
                     .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem " +
@@ -56,6 +74,15 @@ public class BootstrapData implements CommandLineRunner {
                             "Richard McClintock")
                     .createdAt(LocalDateTime.now().minusMonths(5))
                     .build();
+
+            post_1.addCategory(engineering);
+
+            post_2.addCategory(technology);
+            post_2.addCategory(engineering);
+
+            post_3.addCategory(management);
+
+            post_4.addCategory(engineering);
 
             postRepository.save(post_1);
             postRepository.save(post_2);
