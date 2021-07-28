@@ -1,4 +1,4 @@
-package com.saransh.springblog.boostrap;
+package com.saransh.springblog.repository;
 
 import com.saransh.springblog.domain.Category;
 import org.springframework.data.repository.CrudRepository;

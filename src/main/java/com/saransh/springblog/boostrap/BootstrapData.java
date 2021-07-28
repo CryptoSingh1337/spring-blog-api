@@ -2,6 +2,7 @@ package com.saransh.springblog.boostrap;
 
 import com.saransh.springblog.domain.Category;
 import com.saransh.springblog.domain.Post;
+import com.saransh.springblog.repository.CategoryRepository;
 import com.saransh.springblog.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
