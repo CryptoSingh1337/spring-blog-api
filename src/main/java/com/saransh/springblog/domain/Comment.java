@@ -20,6 +20,8 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
+    @Lob
+    private String body;
     private LocalDateTime createdAt;
     @ManyToOne
     private Post post;

@@ -1,6 +1,7 @@
 package com.saransh.springblog.boostrap;
 
 import com.saransh.springblog.domain.Category;
+import com.saransh.springblog.domain.Comment;
 import com.saransh.springblog.domain.Post;
 import com.saransh.springblog.repository.CategoryRepository;
 import com.saransh.springblog.repository.PostRepository;
@@ -51,6 +52,12 @@ public class BootstrapData implements CommandLineRunner {
                             "book. It has survived not only five centuries")
                     .createdAt(LocalDateTime.now())
                     .build();
+
+            post_1.addComment(Comment.builder()
+                    .username("Anonymous")
+                    .body("Helpful Post")
+                    .build()
+            );
 
             Post post_2 = Post.builder()
                     .title("Where does it come from?")

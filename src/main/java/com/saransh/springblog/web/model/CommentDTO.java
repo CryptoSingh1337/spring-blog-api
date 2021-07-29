@@ -16,5 +16,6 @@ public class CommentDTO {
 
     private Long id;
     private String username;
+    private String body;
     private OffsetDateTime createdAt;
 }
