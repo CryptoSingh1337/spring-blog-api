@@ -1,6 +1,6 @@
 package com.saransh.springblog.web.controller;
 
-import com.saransh.springblog.Exception.ResourceNotFoundException;
+import com.saransh.springblog.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

@@ -1,4 +1,4 @@
-package com.saransh.springblog.Exception;
+package com.saransh.springblog.exception;
 
 /**
  * Created by CryptoSingh1337 on 7/28/2021
