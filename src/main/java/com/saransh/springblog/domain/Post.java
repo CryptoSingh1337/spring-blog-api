@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.FetchType.LAZY;
+
 /**
  * Created by CryptoSingh1337 on 7/27/2021
  */
@@ -29,19 +32,25 @@ public class Post {
     )
     private UUID id;
     private String title;
+
     @Lob
     private String body;
+
     @Column(updatable = false)
     private LocalDateTime createdAt;
+
     private LocalDateTime updatedAt;
     private String img;
     private Long views;
     private Boolean published;
+
     @Version
     private Integer version;
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = LAZY)
     private List<Comment> comments;
-    @ManyToMany
+
+    @ManyToMany(fetch = EAGER)
     @JoinTable(
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")

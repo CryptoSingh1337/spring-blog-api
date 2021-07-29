@@ -3,7 +3,6 @@ package com.saransh.springblog.web.model;
 import lombok.*;
 
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -15,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString(exclude = {"comments", "categories"})
+@ToString(exclude = {"categories"})
 public class PostDTO {
 
     private UUID id;
@@ -26,6 +25,5 @@ public class PostDTO {
     private String img;
     private Long views;
     private Boolean published;
-    private List<CommentDTO> comments;
     private Set<CategoryDTO> categories;
 }
