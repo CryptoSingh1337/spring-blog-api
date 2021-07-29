@@ -1,7 +1,7 @@
 package com.saransh.springblog.service;
 
-import com.saransh.springblog.Exception.ResourceNotFoundException;
 import com.saransh.springblog.domain.Post;
+import com.saransh.springblog.exception.ResourceNotFoundException;
 import com.saransh.springblog.repository.PostRepository;
 import com.saransh.springblog.web.mapper.PostMapper;
 import com.saransh.springblog.web.model.PostDTO;
@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDTO> findAllByCategory(Pageable pageable, String categoryName) {
         log.debug("Retrieving all the Posts having Category: {}", categoryName);
-        return postRepository.findAllByCategories_NameIgnoreCase(pageable, categoryName).stream()
+        return postRepository.findAllByCategories_Name(pageable, categoryName).stream()
                 .map(postMapper::postToPostDTO)
                 .collect(Collectors.toList());
     }
@@ -49,6 +49,13 @@ public class PostServiceImpl implements PostService {
                         String.format("Post with Id: %s not found", postId))
                 );
         return postMapper.postToPostDTO(post);
+    }
+
+    public List<PostDTO> findAllByTitle(Pageable pageable, String title) {
+        log.debug("Retrieving all the Post with having {} in their title", title);
+        return postRepository.findAllByTitleContainingIgnoreCase(pageable, title).stream()
+                .map(postMapper::postToPostDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

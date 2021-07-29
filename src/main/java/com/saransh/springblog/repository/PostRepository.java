@@ -14,5 +14,7 @@ import java.util.UUID;
 public interface PostRepository extends JpaRepository<Post, UUID> {
 
     @Query("from Post p join p.categories c where c.name = :categoryName")
-    List<Post> findAllByCategories_NameIgnoreCase(Pageable pageable, String categoryName);
+    List<Post> findAllByCategories_Name(Pageable pageable, String categoryName);
+
+    List<Post> findAllByTitleContainingIgnoreCase(Pageable pageable, String title);
 }

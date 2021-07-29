@@ -47,6 +47,17 @@ public class PostController {
         return ResponseEntity.ok().body(postService.findById(postId));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<PostDTO>> findAllByTitle(
+            @RequestParam String title,
+            @RequestParam("page") int pageNo
+    ) {
+        List<PostDTO> posts = postService.findAllByTitle(PageRequest.of(
+                pageNo, PAGE_SIZE),
+                title);
+        return ResponseEntity.ok().body(posts);
+    }
+
     @PostMapping
     public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO) {
         PostDTO savedPost = postService.save(postDTO);
