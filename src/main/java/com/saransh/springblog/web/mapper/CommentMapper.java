@@ -11,5 +11,5 @@ import org.mapstruct.Mapper;
 public interface CommentMapper {
 
     Comment commentDTOToComment(CommentDTO commentDTO);
-    CommentDTO postToPostDTO(Comment comment);
+    CommentDTO commentToCommentDTO(Comment comment);
 }
