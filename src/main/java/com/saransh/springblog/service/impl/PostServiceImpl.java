@@ -1,8 +1,9 @@
-package com.saransh.springblog.service;
+package com.saransh.springblog.service.impl;
 
 import com.saransh.springblog.domain.Post;
 import com.saransh.springblog.exception.ResourceNotFoundException;
 import com.saransh.springblog.repository.PostRepository;
+import com.saransh.springblog.service.PostService;
 import com.saransh.springblog.web.mapper.PostMapper;
 import com.saransh.springblog.web.model.PostDTO;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -64,5 +66,16 @@ public class PostServiceImpl implements PostService {
         Post savedPost = postRepository.save(postMapper.postDTOToPost(postDTO));
         log.debug("Saved the Post with ID: {}", savedPost.getId());
         return postMapper.postToPostDTO(savedPost);
+    }
+
+    @Override
+    public PostDTO update(UUID postId, PostDTO postDTO) {
+        log.debug("Retrieving the Post with Id: {}", postId);
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post not find with Id: " + postId));
+        post.setTitle(postDTO.getTitle());
+        post.setBody(postDTO.getBody());
+        post.setUpdatedAt(LocalDateTime.now());
+        return postMapper.postToPostDTO(postRepository.save(post));
     }
 }

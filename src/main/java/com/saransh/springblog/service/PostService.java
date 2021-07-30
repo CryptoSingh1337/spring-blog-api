@@ -16,4 +16,5 @@ public interface PostService {
     PostDTO findById(UUID postId);
     List<PostDTO> findAllByTitle(Pageable pageable, String title);
     PostDTO save(PostDTO postDTO);
+    PostDTO update(UUID postId, PostDTO postDTO);
 }

@@ -1,5 +1,6 @@
 package com.saransh.springblog.web.controller;
 
+import com.saransh.springblog.exception.PostIdMismatchException;
 import com.saransh.springblog.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,10 @@ public class MvcExceptionHandler {
                 .body(
                         e.getAllErrors()
                 );
+    }
+
+    @ExceptionHandler(PostIdMismatchException.class)
+    public ResponseEntity<?> postIdMismatchHandler() {
+        return ResponseEntity.badRequest().body("Invalid Post Id");
     }
 }
