@@ -54,24 +54,24 @@ public class PostController {
             @RequestParam("page") int pageNo
     ) {
         List<PostDTO> posts = postService.findAllByTitle(PageRequest.of(
-                pageNo, PAGE_SIZE),
+                        pageNo, PAGE_SIZE),
                 title);
         return ResponseEntity.ok().body(posts);
     }
 
-    @PostMapping
+    @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO) {
         PostDTO savedPost = postService.save(postDTO);
         return ResponseEntity.created(
-            URI.create(
-                    ServletUriComponentsBuilder.fromCurrentRequestUri()
-                            .build().toUriString() +
-                            "/" + savedPost.getId().toString()
-            )
+                URI.create(
+                        ServletUriComponentsBuilder.fromCurrentRequestUri()
+                                .build().toUriString() +
+                                "/" + savedPost.getId().toString()
+                )
         ).body(savedPost);
     }
 
-    @PutMapping("/id/{postId}")
+    @PutMapping(value = "/id/{postId}", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<PostDTO> updatePost(
             @PathVariable UUID postId,
             @RequestBody PostDTO postDTO
