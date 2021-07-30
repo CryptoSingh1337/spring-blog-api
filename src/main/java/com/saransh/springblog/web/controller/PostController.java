@@ -76,7 +76,7 @@ public class PostController {
             @PathVariable UUID postId,
             @RequestBody PostDTO postDTO
     ) {
-        if (postId != postDTO.getId())
+        if (!postId.equals(postDTO.getId()))
             throw new PostIdMismatchException();
         PostDTO savedPost = postService.update(postId, postDTO);
         return ResponseEntity.ok().body(savedPost);

@@ -4,6 +4,7 @@ import com.saransh.springblog.exception.PostIdMismatchException;
 import com.saransh.springblog.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -28,6 +29,11 @@ public class MvcExceptionHandler {
                 .body(
                         e.getAllErrors()
                 );
+    }
+
+    @ExceptionHandler(HttpMessageConversionException.class)
+    public ResponseEntity<?> invalidRequestPropertyHandler() {
+        return ResponseEntity.badRequest().body("Invalid Property values");
     }
 
     @ExceptionHandler(PostIdMismatchException.class)
