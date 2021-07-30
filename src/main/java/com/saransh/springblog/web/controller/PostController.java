@@ -5,6 +5,7 @@ import com.saransh.springblog.service.PostService;
 import com.saransh.springblog.web.model.PostDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,8 @@ import java.util.UUID;
 public class PostController {
 
     private final PostService postService;
-    private final int PAGE_SIZE = 2;
+    @Value("${api.pagination.page_size}")
+    private int PAGE_SIZE;
 
     @GetMapping
     public ResponseEntity<List<PostDTO>> findAll(@RequestParam("page") int pageNo) {
