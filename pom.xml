@@ -130,6 +130,12 @@
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
+                            <sourceDirectory>
+                                ${basedir}/src/main/asciidoc
+                            </sourceDirectory>
+                            <outputDirectory>
+                                ${basedir}/docs
+                            </outputDirectory>
                             <backend>html</backend>
                             <doctype>book</doctype>
                         </configuration>
