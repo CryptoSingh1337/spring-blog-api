@@ -1,6 +1,6 @@
 package com.saransh.springblog.web.controller;
 
-import com.saransh.springblog.exception.PostIdMismatchException;
+import com.saransh.springblog.exception.IdMismatchException;
 import com.saransh.springblog.service.PostService;
 import com.saransh.springblog.web.model.PostDTO;
 import lombok.RequiredArgsConstructor;
@@ -79,8 +79,9 @@ public class PostController {
             @RequestBody PostDTO postDTO
     ) {
         if (!postId.equals(postDTO.getId()))
-            throw new PostIdMismatchException();
+            throw new IdMismatchException();
         PostDTO savedPost = postService.update(postId, postDTO);
+        log.debug("Post with Id: {} updated successfully", postId);
         return ResponseEntity.ok().body(savedPost);
     }
 }
