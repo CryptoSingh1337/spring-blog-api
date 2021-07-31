@@ -3,8 +3,6 @@
 
 RESTful CRUD API for a Blog using Spring Boot, MySQL, JPA and Hibernate.
 
-[![CircleCI](https://img.shields.io/circleci/build/github/jupyterhub/jupyterhub?logo=circleci)](https://circleci.com/gh/CryptoSingh1337/spring-blog-api/tree/master)
-[![Codecov](https://codecov.io/gh/CryptoSingh1337/spring-blog-api/branch/master/graph/badge.svg?token=FBRB6F3WM2)](https://codecov.io/gh/CryptoSingh1337/spring-blog-api)
 [![Issues Closed](https://img.shields.io/github/issues-closed/CryptoSingh1337/spring-blog-api?color=red)](https://github.com/CryptoSingh1337/spring-blog-api/issues?q=is%3Aissue+is%3Aclosed)
 [![Issues Open](https://img.shields.io/github/issues/CryptoSingh1337/spring-blog-api?color=green)](https://github.com/CryptoSingh1337/spring-blog-api/issues)
 [![PRs Open](https://img.shields.io/github/issues-pr/CryptoSingh1337/spring-blog-api)](https://github.com/CryptoSingh1337/spring-blog-api/pulls)
