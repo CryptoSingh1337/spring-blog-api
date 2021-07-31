@@ -25,4 +25,9 @@ public class Comment {
     private LocalDateTime createdAt;
     @ManyToOne
     private Post post;
+
+    @PrePersist
+    public void updateCreatedAt() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
