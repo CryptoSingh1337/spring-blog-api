@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -62,7 +63,7 @@ public class PostController {
     }
 
     @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO) {
+    public ResponseEntity<PostDTO> savePost(@Validated @RequestBody PostDTO postDTO) {
         PostDTO savedPost = postService.save(postDTO);
         return ResponseEntity.created(
                 URI.create(
@@ -76,7 +77,7 @@ public class PostController {
     @PutMapping(value = "/id/{postId}", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<PostDTO> updatePost(
             @PathVariable UUID postId,
-            @RequestBody PostDTO postDTO
+            @Validated @RequestBody PostDTO postDTO
     ) {
         if (!postId.equals(postDTO.getId()))
             throw new IdMismatchException();

@@ -2,6 +2,9 @@ package com.saransh.springblog.web.model;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Size;
 import java.time.OffsetDateTime;
 
 /**
@@ -15,7 +18,14 @@ import java.time.OffsetDateTime;
 public class CommentDTO {
 
     private Long id;
+
+    @Size(min = 3, max = 50)
+    @NotNull
     private String username;
+
+    @NotNull
     private String body;
+
+    @Null
     private OffsetDateTime createdAt;
 }
