@@ -11,6 +11,9 @@ import java.util.UUID;
  */
 
 public interface CommentService {
-
     List<CommentDTO> findAllByPostId(Pageable pageable, UUID postId);
+    CommentDTO findById(UUID postId, Long id);
+    CommentDTO save(UUID postId, CommentDTO commentDTO);
+    CommentDTO update(UUID postId, CommentDTO commentDTO);
+    void delete(UUID postId, Long id);
 }
