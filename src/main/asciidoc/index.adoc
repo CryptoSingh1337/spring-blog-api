@@ -1,0 +1,104 @@
+= Spring Blog API Documentation
+:toc: left
+Developer: Saransh Kumar;
+:doctype: book
+:favicon: ./images/favicon/api.png
+:icons: font
+:source-highlighter: highlightjs
+
+Spring Blog is a fullstack application which can handle CRUD operations on Post, Comments and Categories.
+This is the documentation for the REST API.
+
+== Controllers
+
+* PostController - RestController class for handling all the operations related to Posts.
+* CommentController - RestController class for handling all the CRUD operations related to Comments.
+* CategoryController - RestController class for handling all the CRUD operations related to Categories.
+
+== Models
+
+* *Post*
+include::{snippets}/post/findById/response-fields.adoc[]
+* *Comment*
+* *Category*
+
+== Post Controller
+
+=== Get all the Post
+This method returns all the post but with pagination.
+
+==== Request Parameter
+include::{snippets}/post/findAll/request-parameters.adoc[]
+
+==== Request
+include::{snippets}/post/findAll/http-request.adoc[]
+
+==== Response
+include::{snippets}/post/findAll/http-response.adoc[]
+
+=== Get all the Post by Category
+This method returns all the post which belongs to a category.
+
+==== Path Parameter
+include::{snippets}/post/findAllByCategory/path-parameters.adoc[]
+
+==== Request Parameter
+include::{snippets}/post/findAllByCategory/request-parameters.adoc[]
+
+==== Request
+include::{snippets}/post/findAllByCategory/http-request.adoc[]
+
+==== Response
+include::{snippets}/post/findAllByCategory/http-response.adoc[]
+
+=== Get all the Post by title
+This method returns all the post that matches the search Title.
+
+==== Request Parameter
+include::{snippets}/post/findAllByTitle/request-parameters.adoc[]
+
+==== Request
+include::{snippets}/post/findAllByTitle/http-request.adoc[]
+
+==== Response
+include::{snippets}/post/findAllByTitle/http-response.adoc[]
+
+=== Get the Post by Id
+This method returns the post by Id.
+
+==== Path Parameter
+include::{snippets}/post/findById/path-parameters.adoc[]
+
+==== Request
+include::{snippets}/post/findById/http-request.adoc[]
+
+==== Response
+include::{snippets}/post/findById/http-response.adoc[]
+
+=== Save a Post
+This method save a Post.
+
+==== Request fields Constraints
+include::{snippets}/post/savePost/request-fields.adoc[]
+
+==== Request
+include::{snippets}/post/savePost/http-request.adoc[]
+
+==== Response
+include::{snippets}/post/savePost/http-response.adoc[]
+
+=== Update a Post
+This method update a Post.
+
+==== Path Parameters
+include::{snippets}/post/updatePost/path-parameters.adoc[]
+
+==== Request fields Constraints
+include::{snippets}/post/updatePost/request-fields.adoc[]
+
+==== Request
+include::{snippets}/post/updatePost/http-request.adoc[]
+
+==== Response
+include::{snippets}/post/updatePost/http-response.adoc[]
+
