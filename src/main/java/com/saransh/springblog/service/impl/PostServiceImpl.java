@@ -64,11 +64,12 @@ public class PostServiceImpl implements PostService {
     @Transactional
     public PostDTO save(PostDTO postDTO) {
         Post savedPost = postRepository.save(postMapper.postDTOToPost(postDTO));
-        log.debug("Saved the Post with ID: {}", savedPost.getId());
+        log.debug("Saved the Post with Id: {}", savedPost.getId());
         return postMapper.postToPostDTO(savedPost);
     }
 
     @Override
+    @Transactional
     public PostDTO update(UUID postId, PostDTO postDTO) {
         log.debug("Retrieving the Post with Id: {}", postId);
         Post post = postRepository.findById(postId)
