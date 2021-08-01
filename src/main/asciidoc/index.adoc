@@ -1,6 +1,6 @@
 = Spring Blog API Documentation
 :toc: left
-Developer: Saransh Kumar;
+Author: Saransh Kumar, 27-07-2021;
 :doctype: book
 :favicon: ./images/favicon/api.png
 :icons: font
@@ -9,11 +9,17 @@ Developer: Saransh Kumar;
 Spring Blog is a fullstack application which can handle CRUD operations on Post, Comments and Categories.
 This is the documentation for the REST API.
 
+== URLs
+* https://github.com/CryptoSingh1337/spring-blog-api[GitHub project]
+* https://github.com/CryptoSingh1337/spring-blog-api/issues[Issue tracker]
+
+TIP: Do you want to improve this page? Please https://github.com/CryptoSingh1337/spring-blog-api/edit/master/src/main/asciidoc/index.adoc[edit it on GitHub]
+
 == Controllers
 
-* PostController - RestController class for handling all the operations related to Posts.
-* CommentController - RestController class for handling all the CRUD operations related to Comments.
-* CategoryController - RestController class for handling all the CRUD operations related to Categories.
+* *PostController* - RestController class for handling all the operations related to Posts.
+* *CommentController* - RestController class for handling all the CRUD operations related to Comments.
+* *CategoryController* - RestController class for handling all the CRUD operations related to Categories.
 
 == Models
 
@@ -83,6 +89,8 @@ include::{snippets}/post/savePost/request-fields.adoc[]
 
 ==== Request
 include::{snippets}/post/savePost/http-request.adoc[]
+IMPORTANT: You can ignore all the null fields in request body,
+only send those properties which are not null.
 
 ==== Response
 include::{snippets}/post/savePost/http-response.adoc[]
@@ -98,6 +106,9 @@ include::{snippets}/post/updatePost/request-fields.adoc[]
 
 ==== Request
 include::{snippets}/post/updatePost/http-request.adoc[]
+IMPORTANT: You can ignore all the null fields in request body,
+only send those properties which are not null. Only title and body of
+the post are going to update.
 
 ==== Response
 include::{snippets}/post/updatePost/http-response.adoc[]

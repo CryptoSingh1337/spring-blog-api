@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<meta name="author" content="Developer: Saransh Kumar">
+<meta name="author" content="Author: Saransh Kumar, 27-07-2021">
 <link rel="icon" type="image/png" href="./images/favicon/api.png">
 <title>Spring Blog API Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -443,11 +443,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>Spring Blog API Documentation</h1>
 <div class="details">
-<span id="author" class="author">Developer: Saransh Kumar</span><br>
+<span id="author" class="author">Author: Saransh Kumar, 27-07-2021</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#_urls">URLs</a></li>
 <li><a href="#_controllers">Controllers</a></li>
 <li><a href="#_models">Models</a></li>
 <li><a href="#_post_controller">Post Controller</a>
@@ -473,18 +474,45 @@ This is the documentation for the REST API.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_urls">URLs</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/CryptoSingh1337/spring-blog-api">GitHub project</a></p>
+</li>
+<li>
+<p><a href="https://github.com/CryptoSingh1337/spring-blog-api/issues">Issue tracker</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Do you want to improve this page? Please <a href="https://github.com/CryptoSingh1337/spring-blog-api/edit/master/src/main/asciidoc/index.adoc">edit it on GitHub</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_controllers">Controllers</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>PostController - RestController class for handling all the operations related to Posts.</p>
+<p><strong>PostController</strong> - RestController class for handling all the operations related to Posts.</p>
 </li>
 <li>
-<p>CommentController - RestController class for handling all the CRUD operations related to Comments.</p>
+<p><strong>CommentController</strong> - RestController class for handling all the CRUD operations related to Comments.</p>
 </li>
 <li>
-<p>CategoryController - RestController class for handling all the CRUD operations related to Categories.</p>
+<p><strong>CategoryController</strong> - RestController class for handling all the CRUD operations related to Categories.</p>
 </li>
 </ul>
 </div>
@@ -631,36 +659,36 @@ Content-Type: application/json
 Content-Length: 1100
 
 [ {
-  "id" : "b6857749-90fc-4e93-b72c-8b1f382ee92a",
+  "id" : "783730dd-766e-4f2e-b5c2-da583fc31533",
   "title" : "Where does it come from?",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-07-31T23:00:55.5026764+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.5026764+05:30",
+  "createdAt" : "2021-08-01T08:38:59.2805543+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.2805543+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
   "categories" : [ {
-    "id" : 1,
-    "name" : "Engineering"
-  }, {
     "id" : 2,
     "name" : "Management"
+  }, {
+    "id" : 1,
+    "name" : "Engineering"
   } ]
 }, {
-  "id" : "dd2551bb-1b7a-487e-8d43-4002a0960658",
+  "id" : "f8b7e012-1298-4365-8372-70eff3923061",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-07-31T23:00:55.5026764+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.5026764+05:30",
+  "createdAt" : "2021-08-01T08:38:59.2805543+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.2805543+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
   "categories" : [ {
-    "id" : 1,
-    "name" : "Engineering"
-  }, {
     "id" : 2,
     "name" : "Management"
+  }, {
+    "id" : 1,
+    "name" : "Engineering"
   } ]
 } ]</code></pre>
 </div>
@@ -734,11 +762,11 @@ Content-Type: application/json
 Content-Length: 1100
 
 [ {
-  "id" : "60f89003-6cd1-4bda-8a78-7ac66769c7ef",
+  "id" : "55e8719c-eb35-42a7-886f-9492fe126df7",
   "title" : "Where does it come from?",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-07-31T23:00:55.6654762+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.6654762+05:30",
+  "createdAt" : "2021-08-01T08:38:59.4495001+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.4495001+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -750,11 +778,11 @@ Content-Length: 1100
     "name" : "Management"
   } ]
 }, {
-  "id" : "81f9ac7e-b60c-4341-873a-6236c31632db",
+  "id" : "71cf2e06-2349-4bce-9084-caf591b4b3a8",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-07-31T23:00:55.6654762+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.6654762+05:30",
+  "createdAt" : "2021-08-01T08:38:59.4495001+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.4495001+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -819,11 +847,11 @@ Content-Type: application/json
 Content-Length: 1100
 
 [ {
-  "id" : "83e0782e-6737-4323-b397-18eb89ad1612",
+  "id" : "145a7fa0-1145-44bb-b5a6-acd2fd0db33e",
   "title" : "Where does it come from?",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-07-31T23:00:55.6342264+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.6342264+05:30",
+  "createdAt" : "2021-08-01T08:38:59.4273338+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.4273338+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -835,11 +863,11 @@ Content-Length: 1100
     "name" : "Management"
   } ]
 }, {
-  "id" : "17e94ad0-bde1-4fc0-bc9d-6b46cf4e7d3f",
+  "id" : "f0d5ee67-aaa4-42f5-8da4-1038cfce94d1",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-07-31T23:00:55.6342264+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.6342264+05:30",
+  "createdAt" : "2021-08-01T08:38:59.4273338+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.4273338+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -886,7 +914,7 @@ Content-Length: 1100
 <h4 id="_request_4">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/id/bd47f6d6-dd76-4a6a-812a-280ffdcde94c HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/id/00dd8d9e-bcc8-404c-954f-c15c532c54ed HTTP/1.1
 Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
@@ -901,11 +929,11 @@ Content-Type: application/json
 Content-Length: 491
 
 {
-  "id" : "1eb221c1-5586-40d4-9957-333efdfcf329",
+  "id" : "cb880888-981b-4640-8c2b-b4a7ddb7743b",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-07-31T23:00:55.5651975+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.5651975+05:30",
+  "createdAt" : "2021-08-01T08:38:59.3491887+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.3491887+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -943,12 +971,6 @@ Content-Length: 491
 <td class="tableblock halign-left valign-top"><p class="tableblock">Constraints</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UUID of the post</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Title of the post</p></td>
@@ -961,34 +983,10 @@ Content-Length: 491
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must not be null</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">createdAt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date at which post is created</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be null</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">updatedAt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update date of the post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be null</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">img</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Link of the post image</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must be a well-formed URL</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">views</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No. of views on the post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be null</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">published</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Show whether the post is published or not</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be null</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">categories</p></td>
@@ -1018,7 +1016,7 @@ Content-Length: 491
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/post HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Content-Length: 374
+Content-Length: 394
 Host: localhost:8080
 
 {
@@ -1027,18 +1025,31 @@ Host: localhost:8080
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   "createdAt" : null,
   "updatedAt" : null,
-  "img" : null,
+  "img" : "https://www.google.com",
   "views" : null,
   "published" : null,
   "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
     "id" : 1,
     "name" : "Engineering"
+  }, {
+    "id" : 2,
+    "name" : "Management"
   } ]
 }</code></pre>
 </div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You can ignore all the null fields in request body,
+only send those properties which are not null.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1046,16 +1057,16 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
-Location: http://localhost:8080/api/v1/post/1bd8e611-bdad-418c-b4b9-37ca918d245b
+Location: http://localhost:8080/api/v1/post/454e0b08-2c2c-4d5b-a6c7-48a797c6360f
 Content-Type: application/json
 Content-Length: 491
 
 {
-  "id" : "1bd8e611-bdad-418c-b4b9-37ca918d245b",
+  "id" : "454e0b08-2c2c-4d5b-a6c7-48a797c6360f",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-07-31T23:00:55.1796548+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.1796548+05:30",
+  "createdAt" : "2021-08-01T08:38:58.9109496+05:30",
+  "updatedAt" : "2021-08-01T08:38:58.9109496+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -1150,36 +1161,6 @@ Content-Length: 491
 <td class="tableblock halign-left valign-top"><p class="tableblock">Link of the post image</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must be a well-formed URL</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">views</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No. of views on the post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be null</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">published</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Show whether the post is published or not</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Must be null</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categories</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An array of categories</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categories.[].id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Id of the category</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categories.[].name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the category</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1187,14 +1168,14 @@ Content-Length: 491
 <h4 id="_request_6">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/post/id/93e9e5ff-661d-49c6-a373-69d501ed8b6b HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/post/id/9e680d0e-5cd4-422d-9234-d772fadeb866 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Content-Length: 408
 Host: localhost:8080
 
 {
-  "id" : "93e9e5ff-661d-49c6-a373-69d501ed8b6b",
+  "id" : "9e680d0e-5cd4-422d-9234-d772fadeb866",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   "createdAt" : null,
@@ -1212,6 +1193,20 @@ Host: localhost:8080
 }</code></pre>
 </div>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You can ignore all the null fields in request body,
+only send those properties which are not null. Only title and body of
+the post are going to update.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_response_6">Response</h4>
@@ -1222,11 +1217,11 @@ Content-Type: application/json
 Content-Length: 491
 
 {
-  "id" : "93e9e5ff-661d-49c6-a373-69d501ed8b6b",
+  "id" : "9e680d0e-5cd4-422d-9234-d772fadeb866",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-07-31T23:00:55.5964461+05:30",
-  "updatedAt" : "2021-07-31T23:00:55.5964461+05:30",
+  "createdAt" : "2021-08-01T08:38:59.3804618+05:30",
+  "updatedAt" : "2021-08-01T08:38:59.3804618+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -1247,7 +1242,7 @@ Content-Length: 491
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-31 22:33:57 +0530
+Last updated 2021-08-01 08:37:48 +0530
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

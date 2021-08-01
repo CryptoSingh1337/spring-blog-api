@@ -196,17 +196,14 @@ class PostControllerTest {
                         preprocessRequest(prettyPrint()),
                         preprocessResponse(prettyPrint()),
                         requestFields(
-                                fields.withPath("id").description("UUID of the post"),
+                                fields.withPath("id").ignored(),
                                 fields.withPath("title").description("Title of the post"),
                                 fields.withPath("body").description("Body of the post"),
-                                fields.withPath("createdAt")
-                                        .description("Date at which post is created"),
-                                fields.withPath("updatedAt")
-                                        .description("Update date of the post"),
+                                fields.withPath("createdAt").ignored(),
+                                fields.withPath("updatedAt").ignored(),
                                 fields.withPath("img").description("Link of the post image"),
-                                fields.withPath("views").description("No. of views on the post"),
-                                fields.withPath("published")
-                                        .description("Show whether the post is published or not"),
+                                fields.withPath("views").ignored(),
+                                fields.withPath("published").ignored(),
                                 fields.withPath("categories")
                                         .description("An array of categories"),
                                 fields.withPath("categories.[].id")
@@ -247,15 +244,11 @@ class PostControllerTest {
                                 fields.withPath("updatedAt")
                                         .description("Update date of the post"),
                                 fields.withPath("img").description("Link of the post image"),
-                                fields.withPath("views").description("No. of views on the post"),
-                                fields.withPath("published")
-                                        .description("Show whether the post is published or not"),
-                                fields.withPath("categories")
-                                        .description("An array of categories"),
-                                fields.withPath("categories.[].id")
-                                        .description("Id of the category"),
-                                fields.withPath("categories.[].name")
-                                        .description("Name of the category")
+                                fields.withPath("views").ignored(),
+                                fields.withPath("published").ignored(),
+                                fields.withPath("categories").ignored(),
+                                fields.withPath("categories.[].id").ignored(),
+                                fields.withPath("categories.[].name").ignored()
                         )));
 
         verify(postService, times(1)).update(any(UUID.class), any(PostDTO.class));
@@ -288,6 +281,7 @@ class PostControllerTest {
         return PostDTO.builder()
                 .title("What is Lorem Ipsum?")
                 .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+                .img("https://www.google.com")
                 .categories(getCategories())
                 .build();
     }
