@@ -10,10 +10,12 @@ Spring Blog is a fullstack application which can handle CRUD operations on Post,
 This is the documentation for the REST API.
 
 == URLs
+
 * https://github.com/CryptoSingh1337/spring-blog-api[GitHub project]
 * https://github.com/CryptoSingh1337/spring-blog-api/issues[Issue tracker]
 
-TIP: Do you want to improve this page? Please https://github.com/CryptoSingh1337/spring-blog-api/edit/master/src/main/asciidoc/index.adoc[edit it on GitHub]
+TIP: Do you want to improve this page?
+Please https://github.com/CryptoSingh1337/spring-blog-api/edit/master/src/main/asciidoc/index.adoc[edit it on GitHub]
 
 == Controllers
 
@@ -23,93 +25,219 @@ TIP: Do you want to improve this page? Please https://github.com/CryptoSingh1337
 
 == Models
 
-* *Post*
+=== Post
+
 include::{snippets}/post/findById/response-fields.adoc[]
-* *Comment*
-* *Category*
+
+=== Comment
+
+include::{snippets}/comment/findById/response-fields.adoc[]
+
+=== Category
 
 == Post Controller
 
 === Get all the Post
+
 This method returns all the post but with pagination.
 
-==== Request Parameter
+==== Request parameter
+
 include::{snippets}/post/findAll/request-parameters.adoc[]
 
 ==== Request
+
 include::{snippets}/post/findAll/http-request.adoc[]
 
 ==== Response
+
 include::{snippets}/post/findAll/http-response.adoc[]
 
 === Get all the Post by Category
+
 This method returns all the post which belongs to a category.
 
-==== Path Parameter
+==== Path parameter
+
 include::{snippets}/post/findAllByCategory/path-parameters.adoc[]
 
-==== Request Parameter
+==== Request parameter
+
 include::{snippets}/post/findAllByCategory/request-parameters.adoc[]
 
 ==== Request
+
 include::{snippets}/post/findAllByCategory/http-request.adoc[]
 
 ==== Response
+
 include::{snippets}/post/findAllByCategory/http-response.adoc[]
 
 === Get all the Post by title
+
 This method returns all the post that matches the search Title.
 
-==== Request Parameter
+==== Request parameter
+
 include::{snippets}/post/findAllByTitle/request-parameters.adoc[]
 
 ==== Request
+
 include::{snippets}/post/findAllByTitle/http-request.adoc[]
 
 ==== Response
+
 include::{snippets}/post/findAllByTitle/http-response.adoc[]
 
 === Get the Post by Id
+
 This method returns the post by Id.
 
-==== Path Parameter
+==== Path parameter
+
 include::{snippets}/post/findById/path-parameters.adoc[]
 
 ==== Request
+
 include::{snippets}/post/findById/http-request.adoc[]
 
 ==== Response
+
 include::{snippets}/post/findById/http-response.adoc[]
 
 === Save a Post
-This method save a Post.
 
-==== Request fields Constraints
+This method saves a post.
+
+==== Request fields constraints
+
 include::{snippets}/post/savePost/request-fields.adoc[]
 
 ==== Request
+
 include::{snippets}/post/savePost/http-request.adoc[]
-IMPORTANT: You can ignore all the null fields in request body,
-only send those properties which are not null.
+IMPORTANT: You can ignore all the null fields in request body, only send those properties which are not null.
 
 ==== Response
+
 include::{snippets}/post/savePost/http-response.adoc[]
 
 === Update a Post
-This method update a Post.
 
-==== Path Parameters
+This method updates a post.
+
+==== Path parameters
+
 include::{snippets}/post/updatePost/path-parameters.adoc[]
 
-==== Request fields Constraints
+==== Request fields constraints
+
 include::{snippets}/post/updatePost/request-fields.adoc[]
 
 ==== Request
+
 include::{snippets}/post/updatePost/http-request.adoc[]
-IMPORTANT: You can ignore all the null fields in request body,
-only send those properties which are not null. Only title and body of
-the post are going to update.
+IMPORTANT: You can ignore all the null fields in request body, only send those properties which are not null.
+Only title and body of the post are going to update.
 
 ==== Response
+
 include::{snippets}/post/updatePost/http-response.adoc[]
 
+== Comment Controller
+
+=== Get all the comments of a Post
+
+This method returns all the comments of a post but with pagination.
+
+==== Path parameter
+
+include::{snippets}/comment/findAllByPostId/path-parameters.adoc[]
+
+==== Request parameter
+
+include::{snippets}/comment/findAllByPostId/request-parameters.adoc[]
+
+==== Request
+
+include::{snippets}/comment/findAllByPostId/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/comment/findAllByPostId/http-response.adoc[]
+
+=== Get Comment by Id
+
+This method returns a comment by Id.
+
+==== Path parameter
+
+include::{snippets}/comment/findById/path-parameters.adoc[]
+
+==== Request
+
+include::{snippets}/comment/findById/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/comment/findById/http-response.adoc[]
+
+=== Save a Comment
+
+This method saves a comment.
+
+==== Path parameter
+
+include::{snippets}/comment/save/path-parameters.adoc[]
+
+==== Request fields constraints
+
+include::{snippets}/comment/save/request-fields.adoc[]
+
+==== Request
+
+include::{snippets}/comment/save/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/comment/save/http-response.adoc[]
+
+=== Update a Comment
+
+This method updates a comment.
+
+==== Path parameter
+
+include::{snippets}/comment/update/path-parameters.adoc[]
+
+==== Request fields constraints
+
+include::{snippets}/comment/update/request-fields.adoc[]
+
+==== Request
+
+include::{snippets}/comment/update/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/comment/update/http-response.adoc[]
+
+=== Delete a Comment
+
+This method deletes a comment.
+
+==== Path parameter
+
+include::{snippets}/comment/deleteById/path-parameters.adoc[]
+
+==== Request parameters
+
+include::{snippets}/comment/deleteById/request-parameters.adoc[]
+
+==== Request
+
+include::{snippets}/comment/deleteById/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/comment/deleteById/http-response.adoc[]

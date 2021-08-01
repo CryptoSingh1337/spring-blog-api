@@ -100,8 +100,8 @@ class PostControllerTest {
 
         mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/post/{categoryName}",
                                 "Engineering")
-                .param("page", "0")
-                .accept("application/json"))
+                        .param("page", "0")
+                        .accept("application/json"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andDo(document("post/{methodName}",
@@ -186,9 +186,9 @@ class PostControllerTest {
         given(postService.save(any(PostDTO.class))).willReturn(getPost());
 
         mockMvc.perform(post("/api/v1/post")
-                .accept("application/json")
-                .contentType("application/json")
-                .content(postDTOJson))
+                        .accept("application/json")
+                        .contentType("application/json")
+                        .content(postDTOJson))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(header().exists("Location"))
@@ -225,8 +225,8 @@ class PostControllerTest {
 
         mockMvc.perform(RestDocumentationRequestBuilders.put("/api/v1/post/id/{postId}",
                                 POST_ID)
-                .accept("application/json")
-                .contentType("application/json").content(postDTOJson))
+                        .accept("application/json")
+                        .contentType("application/json").content(postDTOJson))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andDo(document("post/{methodName}",
