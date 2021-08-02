@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 /**
  * Created by CryptoSingh1337 on 7/27/2021
  */
-@Mapper(uses = {DateMapper.class})
+@Mapper(uses = {DateMapper.class, CategoryMapper.class})
 public interface PostMapper {
 
     Post postDTOToPost(PostDTO postDTO);
