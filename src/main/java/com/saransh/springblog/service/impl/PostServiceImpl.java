@@ -46,10 +46,7 @@ public class PostServiceImpl implements PostService {
 
     public PostDTO findById(UUID postId) {
         log.debug("Retrieving the Post with Id: {}", postId);
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        String.format("Post with Id: %s not found", postId))
-                );
+        Post post = incrementViews(postId);
         return postMapper.postToPostDTO(post);
     }
 
@@ -78,5 +75,14 @@ public class PostServiceImpl implements PostService {
         post.setBody(postDTO.getBody());
         post.setUpdatedAt(LocalDateTime.now());
         return postMapper.postToPostDTO(postRepository.save(post));
+    }
+
+    private Post incrementViews(UUID postId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        String.format("Post with Id: %s not found", postId))
+                );
+        post.setViews(post.getViews() == null ? 1 : post.getViews() + 1);
+        return postRepository.save(post);
     }
 }
