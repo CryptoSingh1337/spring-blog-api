@@ -29,28 +29,94 @@ public class BootstrapData implements CommandLineRunner {
     }
 
     private void loadPosts() {
-        if (postRepository.count() == 0) {
+        if (postRepository.count() == 0 && categoryRepository.count() == 0) {
+            Category fashion = Category.builder()
+                    .name("Fashion")
+                    .build();
+
+            Category food = Category.builder()
+                    .name("Food")
+                    .build();
+
+            Category travel = Category.builder()
+                    .name("Travel")
+                    .build();
+
+            Category music = Category.builder()
+                    .name("Music")
+                    .build();
+
+            Category lifestyle = Category.builder()
+                    .name("Lifestyle")
+                    .build();
+
+            Category fitness = Category.builder()
+                    .name("Fitness")
+                    .build();
+
+            Category diy = Category.builder()
+                    .name("DIY")
+                    .build();
+
+            Category sports = Category.builder()
+                    .name("Sports")
+                    .build();
+
+            Category finance = Category.builder()
+                    .name("Finance")
+                    .build();
+
+            Category political = Category.builder()
+                    .name("Political")
+                    .build();
+
+            Category business = Category.builder()
+                    .name("Business")
+                    .build();
+
+            Category personal = Category.builder()
+                    .name("Personal")
+                    .build();
+
+            Category movie = Category.builder()
+                    .name("Movie")
+                    .build();
+
+            Category news = Category.builder()
+                    .name("News")
+                    .build();
+
+            Category gaming = Category.builder()
+                    .name("Gaming")
+                    .build();
+
             Category technology = Category.builder()
                     .name("Technology")
                     .build();
 
-            Category engineering = Category.builder()
-                    .name("Engineering")
-                    .build();
-
-            Category management = Category.builder()
-                    .name("Management")
-                    .build();
-
+            categoryRepository.save(fashion);
+            categoryRepository.save(food);
+            categoryRepository.save(travel);
+            categoryRepository.save(music);
+            categoryRepository.save(lifestyle);
+            categoryRepository.save(fitness);
+            categoryRepository.save(diy);
+            categoryRepository.save(sports);
+            categoryRepository.save(finance);
+            categoryRepository.save(political);
+            categoryRepository.save(business);
+            categoryRepository.save(personal);
+            categoryRepository.save(movie);
+            categoryRepository.save(news);
+            categoryRepository.save(gaming);
             categoryRepository.save(technology);
-            categoryRepository.save(engineering);
-            categoryRepository.save(management);
 
             Post post_1 = Post.builder()
                     .title("What is Lorem Ipsum?")
                     .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem " +
                             "book. It has survived not only five centuries")
                     .createdAt(LocalDateTime.now())
+                    .views(15865L)
                     .build();
 
             post_1.addComment(Comment.builder()
@@ -90,6 +156,7 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .createdAt(LocalDateTime.now().minusMonths(10))
+                    .views(20589L)
                     .build();
 
             Post post_3 = Post.builder()
@@ -98,7 +165,16 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .createdAt(LocalDateTime.now().minusMonths(5))
+                    .views(245864L)
                     .build();
+
+            post_3.addComment(Comment.builder()
+                    .username("Charles Nickolas")
+                    .body("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
+                            "sed do eiusmod tempor incididunt ut labore et dolore " +
+                            "magna aliqua. Ut enim ad minim veniam, quis nostrud")
+                    .build()
+            );
 
             Post post_4 = Post.builder()
                     .title("Why do we use it?")
@@ -106,21 +182,41 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .createdAt(LocalDateTime.now().minusMonths(5))
+                    .views(1754L)
                     .build();
 
-            post_1.addCategory(engineering);
+            Post post_5 = Post.builder()
+                    .title("The standard Lorem Ipsum passage, used since the 1500s")
+                    .body("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                            "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud " +
+                            "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+                    .createdAt(LocalDateTime.now().minusMonths(5))
+                    .views(1528L)
+                    .build();
 
-            post_2.addCategory(technology);
-            post_2.addCategory(engineering);
+            Post post_6 = Post.builder()
+                    .title("1914 translation by H. Rackham")
+                    .body("But I must explain to you how all this mistaken idea of denouncing pleasure " +
+                            "and praising pain was born and I will give you a complete account of the " +
+                            "system, and expound the actual teachings of the great explorer of the truth, " +
+                            "the master-builder of human happiness.")
+                    .createdAt(LocalDateTime.now().minusMonths(5))
+                    .views(985L)
+                    .build();
 
-            post_3.addCategory(management);
-
-            post_4.addCategory(engineering);
+            post_1.setCategory(fashion);
+            post_2.setCategory(personal);
+            post_3.setCategory(technology);
+            post_4.setCategory(personal);
+            post_5.setCategory(gaming);
+            post_6.setCategory(news);
 
             postRepository.save(post_1);
             postRepository.save(post_2);
             postRepository.save(post_3);
             postRepository.save(post_4);
+            postRepository.save(post_5);
+            postRepository.save(post_6);
             log.info("Loaded Posts: {}", postRepository.count());
         }
     }
