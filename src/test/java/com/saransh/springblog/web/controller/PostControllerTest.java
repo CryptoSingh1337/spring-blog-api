@@ -17,9 +17,7 @@ import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.OffsetDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -83,10 +81,10 @@ class PostControllerTest {
                                         .description("No. of views on the post"),
                                 fieldWithPath("[].published").type(BOOLEAN)
                                         .description("Show whether the post is published or not"),
-                                fieldWithPath("[].categories")
-                                        .description("An array of categories"),
-                                fieldWithPath("[].categories.[].id").description("Id of the category"),
-                                fieldWithPath("[].categories.[].name")
+                                fieldWithPath("[].category")
+                                        .description("Category of the post"),
+                                fieldWithPath("[].category.id").description("Id of the category"),
+                                fieldWithPath("[].category.name")
                                         .description("Name of the category")
                         )));
 
@@ -99,7 +97,7 @@ class PostControllerTest {
                 .willReturn(getPostList());
 
         mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/post/{categoryName}",
-                                "Engineering")
+                                "Lifestyle")
                         .param("page", "0")
                         .accept("application/json"))
                 .andExpect(status().isOk())
@@ -123,7 +121,7 @@ class PostControllerTest {
         given(postService.findById(any(UUID.class))).willReturn(getPost());
 
         mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/post/id/{postId}",
-                                UUID.randomUUID())
+                                POST_ID)
                         .accept("application/json"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
@@ -146,10 +144,10 @@ class PostControllerTest {
                                         .description("No. of views on the post"),
                                 fieldWithPath("published").type(BOOLEAN)
                                         .description("Show whether the post is published or not"),
-                                fieldWithPath("categories")
-                                        .description("An array of categories"),
-                                fieldWithPath("categories.[].id").description("Id of the category"),
-                                fieldWithPath("categories.[].name")
+                                fieldWithPath("category")
+                                        .description("Category of the post"),
+                                fieldWithPath("category.id").description("Id of the category"),
+                                fieldWithPath("category.name")
                                         .description("Name of the category")
                         )));
 
@@ -204,11 +202,11 @@ class PostControllerTest {
                                 fields.withPath("img").description("Link of the post image"),
                                 fields.withPath("views").ignored(),
                                 fields.withPath("published").ignored(),
-                                fields.withPath("categories")
-                                        .description("An array of categories"),
-                                fields.withPath("categories.[].id")
+                                fields.withPath("category")
+                                        .description("Category of the post"),
+                                fields.withPath("category.id")
                                         .description("Id of the category"),
-                                fields.withPath("categories.[].name")
+                                fields.withPath("category.name")
                                         .description("Name of the category")
                         )));
 
@@ -246,9 +244,9 @@ class PostControllerTest {
                                 fields.withPath("img").description("Link of the post image"),
                                 fields.withPath("views").ignored(),
                                 fields.withPath("published").ignored(),
-                                fields.withPath("categories").ignored(),
-                                fields.withPath("categories.[].id").ignored(),
-                                fields.withPath("categories.[].name").ignored()
+                                fields.withPath("category").ignored(),
+                                fields.withPath("category.id").ignored(),
+                                fields.withPath("category.name").ignored()
                         )));
 
         verify(postService, times(1)).update(any(UUID.class), any(PostDTO.class));
@@ -264,7 +262,7 @@ class PostControllerTest {
                 .img("https://www.google.com")
                 .views(15987L)
                 .published(true)
-                .categories(getCategories())
+                .category(getCategory("News"))
                 .build();
     }
 
@@ -273,7 +271,7 @@ class PostControllerTest {
                 .id(POST_ID)
                 .title("What is Lorem Ipsum?")
                 .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
-                .categories(getCategories())
+                .category(getCategory("News"))
                 .build();
     }
 
@@ -282,12 +280,11 @@ class PostControllerTest {
                 .title("What is Lorem Ipsum?")
                 .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
                 .img("https://www.google.com")
-                .categories(getCategories())
+                .category(getCategory("News"))
                 .build();
     }
 
     private List<PostDTO> getPostList() {
-        Set<CategoryDTO> categories = getCategories();
         return List.of(
                 PostDTO.builder()
                         .id(UUID.randomUUID())
@@ -300,7 +297,7 @@ class PostControllerTest {
                         .img("https://www.google.com")
                         .views(15987L)
                         .published(true)
-                        .categories(categories)
+                        .category(getCategory("Lifestyle"))
                         .build(),
                 PostDTO.builder()
                         .id(UUID.randomUUID())
@@ -311,19 +308,15 @@ class PostControllerTest {
                         .img("https://www.google.com")
                         .views(15987L)
                         .published(true)
-                        .categories(categories)
+                        .category(getCategory("Lifestyle"))
                         .build()
         );
     }
 
-    private Set<CategoryDTO> getCategories() {
-        Set<CategoryDTO> categories = new HashSet<>();
-        categories.add(CategoryDTO.builder()
+    private CategoryDTO getCategory(String name) {
+        return CategoryDTO.builder()
                 .id(1)
-                .name("Engineering").build());
-        categories.add(CategoryDTO.builder()
-                .id(2)
-                .name("Management").build());
-        return categories;
+                .name(name)
+                .build();
     }
 }

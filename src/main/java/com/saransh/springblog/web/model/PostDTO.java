@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 import java.time.OffsetDateTime;
-import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -18,7 +17,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString(exclude = {"categories"})
 public class PostDTO {
 
     private UUID id;
@@ -44,5 +42,5 @@ public class PostDTO {
 
     @Null
     private Boolean published;
-    private Set<CategoryDTO> categories;
+    private CategoryDTO category;
 }

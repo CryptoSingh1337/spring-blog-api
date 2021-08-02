@@ -5,9 +5,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 
 /**
@@ -50,12 +51,8 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = LAZY)
     private List<Comment> comments;
 
-    @ManyToMany(fetch = EAGER)
-    @JoinTable(
-            joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
-    )
-    private Set<Category> categories = new HashSet<>();
+    @ManyToOne
+    private Category category;
 
     @PrePersist
     public void updateCreatedAt() {
@@ -67,11 +64,5 @@ public class Post {
             comments = new ArrayList<>();
         this.comments.add(comment);
         comment.setPost(this);
-    }
-
-    public void addCategory(Category category) {
-        if (categories == null)
-            categories = new HashSet<>();
-        this.categories.add(category);
     }
 }

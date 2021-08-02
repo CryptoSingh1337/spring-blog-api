@@ -600,17 +600,17 @@ Please <a href="https://github.com/CryptoSingh1337/spring-blog-api/edit/master/s
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show whether the post is published or not</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>categories</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An array of categories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>category</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category of the post</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>categories.[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>category.id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Id of the category</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>categories.[].name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>category.name</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name of the category</p></td>
 </tr>
@@ -732,40 +732,34 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1100
+Content-Length: 980
 
 [ {
-  "id" : "76d54e3c-f405-4211-b03e-3cf01767dc00",
+  "id" : "eebdba7c-b499-4039-ab3d-29a9edc74337",
   "title" : "Where does it come from?",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-08-02T12:01:15.3888415+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.3888415+05:30",
+  "createdAt" : "2021-08-02T23:30:35.408463+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.408463+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  }, {
-    "id" : 2,
-    "name" : "Management"
-  } ]
+    "name" : "Lifestyle"
+  }
 }, {
-  "id" : "3224cf21-2ab1-4274-8604-ab39c73d2586",
+  "id" : "3f13c2b7-1d40-4cbc-8f24-3dd94abfb650",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-02T12:01:15.3888415+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.3888415+05:30",
+  "createdAt" : "2021-08-02T23:30:35.408463+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.408463+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  }, {
-    "id" : 2,
-    "name" : "Management"
-  } ]
+    "name" : "Lifestyle"
+  }
 } ]</code></pre>
 </div>
 </div>
@@ -823,7 +817,7 @@ Content-Length: 1100
 <h4 id="_request_2">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/Engineering?page=0 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/Lifestyle?page=0 HTTP/1.1
 Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
@@ -835,40 +829,34 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1100
+Content-Length: 984
 
 [ {
-  "id" : "38c7ffd5-e337-41e7-b618-e23a9ef6b13e",
+  "id" : "0b549370-8540-452d-ac6b-75015ecf8228",
   "title" : "Where does it come from?",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-08-02T12:01:15.5848456+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.5848456+05:30",
+  "createdAt" : "2021-08-02T23:30:35.6074688+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.6074688+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  } ]
+    "name" : "Lifestyle"
+  }
 }, {
-  "id" : "32f91a22-3824-4e62-a6d4-03b7f9ff2dd2",
+  "id" : "189a1e25-564b-4d52-a0b8-e915ec7917bf",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-02T12:01:15.5848456+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.5848456+05:30",
+  "createdAt" : "2021-08-02T23:30:35.6074688+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.6074688+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  } ]
+    "name" : "Lifestyle"
+  }
 } ]</code></pre>
 </div>
 </div>
@@ -920,40 +908,34 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1100
+Content-Length: 984
 
 [ {
-  "id" : "848b7700-5d13-42d7-9654-b5a1df81ec44",
+  "id" : "b8122346-993f-4fba-984f-f24884b8d49f",
   "title" : "Where does it come from?",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-08-02T12:01:15.5468396+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.5468396+05:30",
+  "createdAt" : "2021-08-02T23:30:35.5694678+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.5694678+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  } ]
+    "name" : "Lifestyle"
+  }
 }, {
-  "id" : "9ebf19bc-3415-4f5f-9005-d4678c933d81",
+  "id" : "c8707e1b-dc66-47c9-a2c0-417a1cbeab1c",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-02T12:01:15.5468396+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.5468396+05:30",
+  "createdAt" : "2021-08-02T23:30:35.5694678+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.5694678+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  } ]
+    "name" : "Lifestyle"
+  }
 } ]</code></pre>
 </div>
 </div>
@@ -990,7 +972,7 @@ Content-Length: 1100
 <h4 id="_request_4">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/id/ba9a05f2-171d-4057-a4c3-6a35b2a00683 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/id/2f86a3e8-28d6-438d-a49e-4832a533f9bf HTTP/1.1
 Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
@@ -1002,24 +984,21 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 491
+Content-Length: 426
 
 {
-  "id" : "2fafe215-5d62-437a-8a02-6294f9f73bb3",
+  "id" : "2f86a3e8-28d6-438d-a49e-4832a533f9bf",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-02T12:01:15.4338424+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.4338424+05:30",
+  "createdAt" : "2021-08-02T23:30:35.470461+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.470461+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  } ]
+    "name" : "News"
+  }
 }</code></pre>
 </div>
 </div>
@@ -1065,19 +1044,19 @@ Content-Length: 491
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must be a well-formed URL</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categories</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An array of categories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category of the post</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categories.[].id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category.id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Id of the category</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categories.[].name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category.name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name of the category</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1092,7 +1071,7 @@ Content-Length: 491
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/post HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Content-Length: 394
+Content-Length: 331
 Host: localhost:8080
 
 {
@@ -1104,13 +1083,10 @@ Host: localhost:8080
   "img" : "https://www.google.com",
   "views" : null,
   "published" : null,
-  "categories" : [ {
-    "id" : 2,
-    "name" : "Management"
-  }, {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  } ]
+    "name" : "News"
+  }
 }</code></pre>
 </div>
 </div>
@@ -1132,26 +1108,23 @@ You can ignore all the null fields in request body, only send those properties w
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
-Location: http://localhost:8080/api/v1/post/ad5176fe-28f3-4b72-9df4-92b3bacba3f0
+Location: http://localhost:8080/api/v1/post/67443f91-c2c9-4d5f-a24a-08179b5c3a9e
 Content-Type: application/json
-Content-Length: 491
+Content-Length: 426
 
 {
-  "id" : "ad5176fe-28f3-4b72-9df4-92b3bacba3f0",
+  "id" : "67443f91-c2c9-4d5f-a24a-08179b5c3a9e",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-02T12:01:15.2616189+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.2616189+05:30",
+  "createdAt" : "2021-08-02T23:30:35.186487+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.186487+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  }, {
-    "id" : 2,
-    "name" : "Management"
-  } ]
+    "name" : "News"
+  }
 }</code></pre>
 </div>
 </div>
@@ -1243,14 +1216,14 @@ Content-Length: 491
 <h4 id="_request_6">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/post/id/49528215-c040-4f29-b263-b0bddb5523db HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/post/id/0d3fb834-933a-452e-a0a2-c3c1b4e0bbb6 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Content-Length: 408
+Content-Length: 345
 Host: localhost:8080
 
 {
-  "id" : "49528215-c040-4f29-b263-b0bddb5523db",
+  "id" : "0d3fb834-933a-452e-a0a2-c3c1b4e0bbb6",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   "createdAt" : null,
@@ -1258,13 +1231,10 @@ Host: localhost:8080
   "img" : null,
   "views" : null,
   "published" : null,
-  "categories" : [ {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  }, {
-    "id" : 2,
-    "name" : "Management"
-  } ]
+    "name" : "News"
+  }
 }</code></pre>
 </div>
 </div>
@@ -1288,24 +1258,21 @@ Only title and body of the post are going to update.
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 491
+Content-Length: 428
 
 {
-  "id" : "49528215-c040-4f29-b263-b0bddb5523db",
+  "id" : "0d3fb834-933a-452e-a0a2-c3c1b4e0bbb6",
   "title" : "What is Lorem Ipsum?",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-02T12:01:15.4808395+05:30",
-  "updatedAt" : "2021-08-02T12:01:15.4808395+05:30",
+  "createdAt" : "2021-08-02T23:30:35.5194611+05:30",
+  "updatedAt" : "2021-08-02T23:30:35.5194611+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
-  "categories" : [ {
+  "category" : {
     "id" : 1,
-    "name" : "Engineering"
-  }, {
-    "id" : 2,
-    "name" : "Management"
-  } ]
+    "name" : "News"
+  }
 }</code></pre>
 </div>
 </div>
@@ -1368,7 +1335,7 @@ Content-Length: 491
 <h4 id="_request_7">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/ac588f53-30e5-423c-8ae3-39e7b9ff6106?page=0 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/69c2b825-eabc-4fc9-b12f-b393a567c753?page=0 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Host: localhost:8080</code></pre>
@@ -1387,12 +1354,12 @@ Content-Length: 274
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-02T12:01:14.1279602+05:30"
+  "createdAt" : "2021-08-02T23:30:34.0887779+05:30"
 }, {
   "id" : 2,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum is a dummy text",
-  "createdAt" : "2021-08-02T12:01:14.1279602+05:30"
+  "createdAt" : "2021-08-02T23:30:34.0887779+05:30"
 } ]</code></pre>
 </div>
 </div>
@@ -1433,7 +1400,7 @@ Content-Length: 274
 <h4 id="_request_8">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/667bc99c-79dd-4764-8f58-08626f0b6488/1 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/be50b861-17d3-44b9-91a2-f2aaf0ec3003/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Host: localhost:8080</code></pre>
@@ -1452,7 +1419,7 @@ Content-Length: 126
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-02T12:01:26.3239512+05:30"
+  "createdAt" : "2021-08-02T23:30:46.3324439+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1520,7 +1487,7 @@ Content-Length: 126
 <h4 id="_request_9">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/comment/0eafbfb9-d601-4079-993e-c938a2b1fd01 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/comment/54eec1a7-c0bc-4145-9f47-ead685363d41 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Content-Length: 98
@@ -1541,13 +1508,13 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 126
+Content-Length: 125
 
 {
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-02T12:01:26.3839568+05:30"
+  "createdAt" : "2021-08-02T23:30:46.380675+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1627,7 +1594,7 @@ Content-Length: 126
 <h4 id="_request_10">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/comment/27419c97-a381-46c4-8b44-1cfb4c83feba HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/comment/69b9a8ae-8e44-45c0-b5bd-8fb5d040cbc6 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Content-Length: 126
@@ -1637,7 +1604,7 @@ Host: localhost:8080
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-02T12:01:14.1859511+05:30"
+  "createdAt" : "2021-08-02T23:30:34.1614414+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1654,7 +1621,7 @@ Content-Length: 126
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-02T12:01:26.2069557+05:30"
+  "createdAt" : "2021-08-02T23:30:46.1784426+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1712,7 +1679,7 @@ Content-Length: 126
 <h4 id="_request_11">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/v1/comment/150b9d1a-8748-4c7e-ba87-b6ea57c07598?commentId=1 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/v1/comment/f2123dcb-837d-41c2-9b71-85172f11e838?commentId=1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Host: localhost:8080</code></pre>
