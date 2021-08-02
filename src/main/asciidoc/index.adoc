@@ -35,6 +35,8 @@ include::{snippets}/comment/findById/response-fields.adoc[]
 
 === Category
 
+include::{snippets}/category/findById/response-fields.adoc[]
+
 == Post Controller
 
 === Get all the Post
@@ -241,3 +243,33 @@ include::{snippets}/comment/deleteById/http-request.adoc[]
 ==== Response
 
 include::{snippets}/comment/deleteById/http-response.adoc[]
+
+== Category Controller
+
+=== Get all the Categories
+
+This method returns all the categories.
+
+==== Request
+
+include::{snippets}/category/findAll/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/category/findAll/http-response.adoc[]
+
+=== Get Category by Id
+
+This method returns a category by Id.
+
+==== Path parameters
+
+include::{snippets}/category/findById/path-parameters.adoc[]
+
+==== Request
+
+include::{snippets}/category/findById/http-request.adoc[]
+
+==== Response
+
+include::{snippets}/category/findById/http-response.adoc[]
