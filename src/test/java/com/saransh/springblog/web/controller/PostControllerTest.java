@@ -41,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(RestDocumentationExtension.class)
 @WebMvcTest(PostController.class)
-@AutoConfigureRestDocs
+@AutoConfigureRestDocs(uriScheme = "https", uriHost = "spring-bloged.herokuapp.com", uriPort = 80)
 class PostControllerTest {
 
     private final UUID POST_ID = UUID.randomUUID();
