@@ -1,4 +1,3 @@
-
 # Spring Blog API
 
 RESTful CRUD API for a Blog using Spring Boot, MySQL, JPA and Hibernate.
@@ -8,21 +7,29 @@ RESTful CRUD API for a Blog using Spring Boot, MySQL, JPA and Hibernate.
 [![PRs Open](https://img.shields.io/github/issues-pr/CryptoSingh1337/spring-blog-api)](https://github.com/CryptoSingh1337/spring-blog-api/pulls)
 ![Last Commit](https://img.shields.io/github/last-commit/CryptoSingh1337/spring-blog-api?color=informational)
 ![PRs Welcome](https://img.shields.io/badge/prs-welcome-ff69b4)
+
 ## Run Locally
 
 Clone the Repo
+
 ```bash
   git clone https://github.com/CryptoSingh1337/spring-blog-api.git
 ```
+
 Change current working directory
+
 ```bash
   cd spring-blog-api
 ```
+
 Run verify goal
+
 ```bash
   ./mvnw clean verify
 ```
+
 Run Spring boot application (default port: 8080)
+
 ```bash
   java -jar target/*.jar
 ```
@@ -35,11 +42,9 @@ To run tests, run the following command
   ./mvnw clean verify
 ```
 
-
 ## Documentation
 
 [Documentation](https://cryptosingh1337.github.io/spring-blog-api)
-
 
 ## Tech Stack
 
@@ -53,4 +58,4 @@ To run tests, run the following command
 
 **Documentation:** Spring Rest Docs
 
-**Deployment:** Docker, Digital Ocean
+**Deployment:** Heroku
