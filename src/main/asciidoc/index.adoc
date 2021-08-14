@@ -55,6 +55,22 @@ include::{snippets}/post/findAll/http-request.adoc[]
 
 include::{snippets}/post/findAll/http-response.adoc[]
 
+=== Get all the Post by Username
+
+This method returns all the post having the username.
+
+=== Path Parameter
+
+include::{snippets}/post/findAllByUsername/path-parameters.adoc[]
+
+=== Request
+
+include::{snippets}/post/findAllByUsername/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/post/findAllByUsername/http-response.adoc[]
+
 === Get all the Post by Category
 
 This method returns all the post which belongs to a category.

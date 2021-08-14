@@ -460,6 +460,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_post_controller">Post Controller</a>
 <ul class="sectlevel2">
 <li><a href="#_get_all_the_post">Get all the Post</a></li>
+<li><a href="#_get_all_the_post_by_username">Get all the Post by Username</a></li>
+<li><a href="#_path_parameter">Path Parameter</a></li>
+<li><a href="#_request_2">Request</a></li>
+<li><a href="#_response_2">Response</a></li>
 <li><a href="#_get_all_the_post_by_category">Get all the Post by Category</a></li>
 <li><a href="#_get_all_the_post_by_title">Get all the Post by title</a></li>
 <li><a href="#_get_the_post_by_id">Get the Post by Id</a></li>
@@ -568,6 +572,11 @@ Please <a href="https://github.com/CryptoSingh1337/spring-blog-api/edit/master/s
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Title of the post</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username of the user</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>body</code></p></td>
@@ -722,7 +731,7 @@ Please <a href="https://github.com/CryptoSingh1337/spring-blog-api/edit/master/s
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post?page=0 HTTP/1.1
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -732,14 +741,15 @@ Host: spring-bloged.herokuapp.com:80</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 984
+Content-Length: 1042
 
 [ {
-  "id" : "6d0bbc30-fb18-4ab5-886d-224b18f1aaf0",
+  "id" : "45d52cd0-0033-4fa3-a6ea-b1553675af55",
   "title" : "Where does it come from?",
+  "username" : "Anonymous",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-08-13T18:48:21.7206263+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.7206263+05:30",
+  "createdAt" : "2021-08-14T09:21:22.5172886+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.5172886+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -748,11 +758,12 @@ Content-Length: 984
     "name" : "Lifestyle"
   }
 }, {
-  "id" : "4dc12eae-cb3b-49e0-8d60-b62f23e8f93d",
+  "id" : "ed9a4507-9fd5-46dd-a896-591a0e7fb3a2",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-13T18:48:21.7206263+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.7206263+05:30",
+  "createdAt" : "2021-08-14T09:21:22.5172886+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.5172886+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -766,14 +777,92 @@ Content-Length: 984
 </div>
 </div>
 <div class="sect2">
+<h3 id="_get_all_the_post_by_username">Get all the Post by Username</h3>
+<div class="paragraph">
+<p>This method returns all the post having the username.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_path_parameter">Path Parameter</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /api/v1/post/username/{username}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username of the user who created the post</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_request_2">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/username/Anonymous HTTP/1.1
+Accept: application/json
+Host: spring-bloged.herokuapp.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_2">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 1042
+
+[ {
+  "id" : "3a9c23e1-aae1-4c78-ba57-d226cd382977",
+  "title" : "Where does it come from?",
+  "username" : "Anonymous",
+  "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
+  "createdAt" : "2021-08-14T09:21:22.6562895+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.6562895+05:30",
+  "img" : "https://www.google.com",
+  "views" : 15987,
+  "published" : true,
+  "category" : {
+    "id" : 1,
+    "name" : "Lifestyle"
+  }
+}, {
+  "id" : "362e4246-cf79-45f4-987d-be4d3ddfcca0",
+  "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
+  "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  "createdAt" : "2021-08-14T09:21:22.6562895+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.6562895+05:30",
+  "img" : "https://www.google.com",
+  "views" : 15987,
+  "published" : true,
+  "category" : {
+    "id" : 1,
+    "name" : "Lifestyle"
+  }
+} ]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_get_all_the_post_by_category">Get all the Post by Category</h3>
 <div class="paragraph">
 <p>This method returns all the post which belongs to a category.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter">Path parameter</h4>
+<h4 id="_path_parameter_2">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. /api/v1/post/{categoryName}</caption>
+<caption class="title">Table 2. /api/v1/post/{categoryName}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -814,29 +903,30 @@ Content-Length: 984
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_2">Request</h4>
+<h4 id="_request_3">Request</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/Lifestyle?page=0 HTTP/1.1
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_2">Response</h4>
+<h4 id="_response_3">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 984
+Content-Length: 1042
 
 [ {
-  "id" : "791a84df-d0b1-4339-a868-fed2afff2cfd",
+  "id" : "117fd20c-c8a2-43a9-86cc-3bea0b1905e4",
   "title" : "Where does it come from?",
+  "username" : "Anonymous",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-08-13T18:48:21.9487704+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.9487704+05:30",
+  "createdAt" : "2021-08-14T09:21:22.7122886+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.7122886+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -845,11 +935,12 @@ Content-Length: 984
     "name" : "Lifestyle"
   }
 }, {
-  "id" : "40adbf96-41b0-4c89-9099-f11a4cebea13",
+  "id" : "33f32250-9813-451d-874a-ba78e52b936f",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-13T18:48:21.9487704+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.9487704+05:30",
+  "createdAt" : "2021-08-14T09:21:22.7122886+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.7122886+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -893,29 +984,30 @@ Content-Length: 984
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_3">Request</h4>
+<h4 id="_request_4">Request</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/search?title=Wh&amp;page=0 HTTP/1.1
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_3">Response</h4>
+<h4 id="_response_4">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 984
+Content-Length: 1038
 
 [ {
-  "id" : "a32b0a3c-67bb-4d01-8954-7fad1b542ef1",
+  "id" : "4a3ae549-1ec6-432a-9855-01f91af58d9c",
   "title" : "Where does it come from?",
+  "username" : "Anonymous",
   "body" : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
-  "createdAt" : "2021-08-13T18:48:21.9236349+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.9236349+05:30",
+  "createdAt" : "2021-08-14T09:21:22.686289+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.686289+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -924,11 +1016,12 @@ Content-Length: 984
     "name" : "Lifestyle"
   }
 }, {
-  "id" : "082e3932-07a2-4280-931e-25dc161e94ee",
+  "id" : "870e8a0c-449c-4b20-b3a2-1efc26ef4a6f",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-13T18:48:21.9236349+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.9236349+05:30",
+  "createdAt" : "2021-08-14T09:21:22.686289+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.686289+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -947,9 +1040,9 @@ Content-Length: 984
 <p>This method returns the post by Id.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter_2">Path parameter</h4>
+<h4 id="_path_parameter_3">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. /api/v1/post/id/{postId}</caption>
+<caption class="title">Table 3. /api/v1/post/id/{postId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -969,29 +1062,30 @@ Content-Length: 984
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_4">Request</h4>
+<h4 id="_request_5">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/id/aec0e34c-0cc0-42da-a55d-9da81ffbc436 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/post/id/5d9fa12f-b4c5-4419-a100-87a40f8ef5fe HTTP/1.1
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_4">Response</h4>
+<h4 id="_response_5">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 428
+Content-Length: 457
 
 {
-  "id" : "aec0e34c-0cc0-42da-a55d-9da81ffbc436",
+  "id" : "5d9fa12f-b4c5-4419-a100-87a40f8ef5fe",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-13T18:48:21.7518775+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.7518775+05:30",
+  "createdAt" : "2021-08-14T09:21:22.5672907+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.5672907+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -1032,6 +1126,12 @@ Content-Length: 428
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must not be null. Size must be between 3 and 250 inclusive</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username of the user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must not be null. Size must be between 3 and 40 inclusive</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Body of the post</p></td>
@@ -1065,18 +1165,19 @@ Content-Length: 428
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_5">Request</h4>
+<h4 id="_request_6">Request</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/post HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Content-Length: 331
-Host: spring-bloged.herokuapp.com:80
+Content-Length: 360
+Host: spring-bloged.herokuapp.com
 
 {
   "id" : null,
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   "createdAt" : null,
   "updatedAt" : null,
@@ -1104,20 +1205,21 @@ You can ignore all the null fields in request body, only send those properties w
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_5">Response</h4>
+<h4 id="_response_6">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
-Location: https://spring-bloged.herokuapp.com:80/api/v1/post/6f2fc2d5-27b2-47b7-aecc-d90926968bff
+Location: https://spring-bloged.herokuapp.com/api/v1/post/431d8bd0-e0e2-487d-98d5-cbdb7c7f5fc1
 Content-Type: application/json
-Content-Length: 428
+Content-Length: 457
 
 {
-  "id" : "6f2fc2d5-27b2-47b7-aecc-d90926968bff",
+  "id" : "431d8bd0-e0e2-487d-98d5-cbdb7c7f5fc1",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-13T18:48:21.6203438+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.6203438+05:30",
+  "createdAt" : "2021-08-14T09:21:22.3467381+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.3467381+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -1138,7 +1240,7 @@ Content-Length: 428
 <div class="sect3">
 <h4 id="_path_parameters">Path parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. /api/v1/post/id/{postId}</caption>
+<caption class="title">Table 4. /api/v1/post/id/{postId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1186,6 +1288,12 @@ Content-Length: 428
 <td class="tableblock halign-left valign-top"><p class="tableblock">Must not be null. Size must be between 3 and 250 inclusive</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username of the post</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must not be null. Size must be between 3 and 40 inclusive</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Body of the post</p></td>
@@ -1213,18 +1321,19 @@ Content-Length: 428
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_6">Request</h4>
+<h4 id="_request_7">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/post/id/bf347753-3957-4985-b27e-d40d1d96fc39 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/post/id/1d34e85a-c93d-42a2-8ff1-cf2ec09f8ca6 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Content-Length: 345
-Host: spring-bloged.herokuapp.com:80
+Content-Length: 374
+Host: spring-bloged.herokuapp.com
 
 {
-  "id" : "bf347753-3957-4985-b27e-d40d1d96fc39",
+  "id" : "1d34e85a-c93d-42a2-8ff1-cf2ec09f8ca6",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   "createdAt" : null,
   "updatedAt" : null,
@@ -1253,19 +1362,20 @@ Only title and body of the post are going to update.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_6">Response</h4>
+<h4 id="_response_7">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 428
+Content-Length: 457
 
 {
-  "id" : "bf347753-3957-4985-b27e-d40d1d96fc39",
+  "id" : "1d34e85a-c93d-42a2-8ff1-cf2ec09f8ca6",
   "title" : "What is Lorem Ipsum?",
+  "username" : "Anonymous",
   "body" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "createdAt" : "2021-08-13T18:48:21.7987512+05:30",
-  "updatedAt" : "2021-08-13T18:48:21.7987512+05:30",
+  "createdAt" : "2021-08-14T09:21:22.6142873+05:30",
+  "updatedAt" : "2021-08-14T09:21:22.6142873+05:30",
   "img" : "https://www.google.com",
   "views" : 15987,
   "published" : true,
@@ -1289,9 +1399,9 @@ Content-Length: 428
 <p>This method returns all the comments of a post but with pagination.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter_3">Path parameter</h4>
+<h4 id="_path_parameter_4">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. /api/v1/comment/{postId}</caption>
+<caption class="title">Table 5. /api/v1/comment/{postId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1332,34 +1442,34 @@ Content-Length: 428
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_7">Request</h4>
+<h4 id="_request_8">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/4c21d81d-7a4f-4ef4-82bb-32cac53c384f?page=0 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/c86ed15a-880b-437a-b24e-d3abd9f0ba08?page=0 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_7">Response</h4>
+<h4 id="_response_8">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 272
+Content-Length: 274
 
 [ {
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-13T18:48:20.702565+05:30"
+  "createdAt" : "2021-08-14T09:21:21.1245614+05:30"
 }, {
   "id" : 2,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum is a dummy text",
-  "createdAt" : "2021-08-13T18:48:20.702565+05:30"
+  "createdAt" : "2021-08-14T09:21:21.1245614+05:30"
 } ]</code></pre>
 </div>
 </div>
@@ -1371,9 +1481,9 @@ Content-Length: 272
 <p>This method returns a comment by Id.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter_4">Path parameter</h4>
+<h4 id="_path_parameter_5">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. /api/v1/comment/{postId}/{commentId}</caption>
+<caption class="title">Table 6. /api/v1/comment/{postId}/{commentId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1397,18 +1507,18 @@ Content-Length: 272
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_8">Request</h4>
+<h4 id="_request_9">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/5a031da9-a1d8-4ab5-b532-50cbc641cb1e/1 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/comment/b7dc3609-f765-4686-af35-ffe712485e38/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_8">Response</h4>
+<h4 id="_response_9">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1419,7 +1529,7 @@ Content-Length: 126
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-13T18:48:32.8653773+05:30"
+  "createdAt" : "2021-08-14T09:21:33.4996247+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1431,9 +1541,9 @@ Content-Length: 126
 <p>This method saves a comment.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter_5">Path parameter</h4>
+<h4 id="_path_parameter_6">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. /api/v1/comment/{postId}</caption>
+<caption class="title">Table 7. /api/v1/comment/{postId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1484,14 +1594,14 @@ Content-Length: 126
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_9">Request</h4>
+<h4 id="_request_10">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/comment/35cdcebd-03ca-4d44-92b2-76eb6ef22208 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/v1/comment/0f907230-a879-4f58-8250-c2d4a1a633a1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Content-Length: 98
-Host: spring-bloged.herokuapp.com:80
+Host: spring-bloged.herokuapp.com
 
 {
   "id" : null,
@@ -1503,7 +1613,7 @@ Host: spring-bloged.herokuapp.com:80
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_9">Response</h4>
+<h4 id="_response_10">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1514,7 +1624,7 @@ Content-Length: 126
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-13T18:48:32.9188009+05:30"
+  "createdAt" : "2021-08-14T09:21:33.5466281+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1526,9 +1636,9 @@ Content-Length: 126
 <p>This method updates a comment.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter_6">Path parameter</h4>
+<h4 id="_path_parameter_7">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. /api/v1/comment/{postId}</caption>
+<caption class="title">Table 8. /api/v1/comment/{postId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1591,26 +1701,26 @@ Content-Length: 126
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_10">Request</h4>
+<h4 id="_request_11">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/comment/4944b69d-459d-4661-b248-bb9264b17a4b HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/v1/comment/6cdcf4a5-0f32-4667-934d-102d257eec86 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
 Content-Length: 126
-Host: spring-bloged.herokuapp.com:80
+Host: spring-bloged.herokuapp.com
 
 {
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-13T18:48:20.7494576+05:30"
+  "createdAt" : "2021-08-14T09:21:21.3045549+05:30"
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_10">Response</h4>
+<h4 id="_response_11">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1621,7 +1731,7 @@ Content-Length: 126
   "id" : 1,
   "username" : "Anonymous",
   "body" : "Lorem Ipsum",
-  "createdAt" : "2021-08-13T18:48:32.7650806+05:30"
+  "createdAt" : "2021-08-14T09:21:33.3275484+05:30"
 }</code></pre>
 </div>
 </div>
@@ -1633,9 +1743,9 @@ Content-Length: 126
 <p>This method deletes a comment.</p>
 </div>
 <div class="sect3">
-<h4 id="_path_parameter_7">Path parameter</h4>
+<h4 id="_path_parameter_8">Path parameter</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. /api/v1/comment/{postId}</caption>
+<caption class="title">Table 9. /api/v1/comment/{postId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1676,18 +1786,18 @@ Content-Length: 126
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_11">Request</h4>
+<h4 id="_request_12">Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/v1/comment/96915371-3eac-4e06-bb11-61428eea2fb9?commentId=1 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/v1/comment/63482dbe-3d20-4e0e-8bbd-7d9742df14fb?commentId=1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Accept: application/json
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_11">Response</h4>
+<h4 id="_response_12">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK</code></pre>
@@ -1706,17 +1816,17 @@ Host: spring-bloged.herokuapp.com:80</code></pre>
 <p>This method returns all the categories.</p>
 </div>
 <div class="sect3">
-<h4 id="_request_12">Request</h4>
+<h4 id="_request_13">Request</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/category HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_12">Response</h4>
+<h4 id="_response_13">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1742,7 +1852,7 @@ Content-Length: 91
 <div class="sect3">
 <h4 id="_path_parameters_2">Path parameters</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. /api/v1/category/{categoryId}</caption>
+<caption class="title">Table 10. /api/v1/category/{categoryId}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1762,17 +1872,17 @@ Content-Length: 91
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_13">Request</h4>
+<h4 id="_request_14">Request</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/v1/category/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Host: spring-bloged.herokuapp.com:80</code></pre>
+Host: spring-bloged.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_13">Response</h4>
+<h4 id="_response_14">Response</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1792,7 +1902,7 @@ Content-Length: 43
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-02 12:00:43 +0530
+Last updated 2021-08-14 09:20:49 +0530
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
