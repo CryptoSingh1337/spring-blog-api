@@ -37,6 +37,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostDTO> findAllByUsername(String username) {
+        log.debug("Retrieving all the Posts having username: {}", username);
+        return postRepository.findAllByUsernameIgnoreCase(username).stream()
+                .map(postMapper::postToPostDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<PostDTO> findAllByCategory(Pageable pageable, String categoryName) {
         log.debug("Retrieving all the Posts having Category: {}", categoryName);
         return postRepository.findAllByCategory_NameIgnoreCase(pageable, categoryName).stream()

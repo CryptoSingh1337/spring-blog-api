@@ -35,6 +35,13 @@ public class PostController {
         return ResponseEntity.ok().body(posts);
     }
 
+    @GetMapping("/username/{username}")
+    public ResponseEntity<List<PostDTO>> findAllByUsername(@PathVariable String username) {
+        return ResponseEntity.ok().body(
+                postService.findAllByUsername(username)
+        );
+    }
+
     @GetMapping("/{categoryName}")
     public ResponseEntity<List<PostDTO>> findAllByCategory(
             @PathVariable String categoryName,
