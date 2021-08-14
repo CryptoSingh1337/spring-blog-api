@@ -21,9 +21,13 @@ public class PostDTO {
 
     private UUID id;
 
-    @Size(min = 3, max = 250)
     @NotNull
+    @Size(min = 3, max = 250)
     private String title;
+
+    @NotNull
+    @Size(min = 3, max = 40)
+    private String username;
 
     @NotNull
     private String body;

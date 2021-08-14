@@ -33,6 +33,7 @@ public class Post {
     )
     private UUID id;
     private String title;
+    private String username;
 
     @Lob
     private String body;
