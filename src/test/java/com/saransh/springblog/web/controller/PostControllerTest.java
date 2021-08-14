@@ -41,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(RestDocumentationExtension.class)
 @WebMvcTest(PostController.class)
-@AutoConfigureRestDocs(uriScheme = "https", uriHost = "spring-bloged.herokuapp.com", uriPort = 80)
+@AutoConfigureRestDocs(uriScheme = "https", uriHost = "spring-bloged.herokuapp.com", uriPort = 443)
 class PostControllerTest {
 
     private final UUID POST_ID = UUID.randomUUID();
@@ -70,6 +70,7 @@ class PostControllerTest {
                                 fieldWithPath("[]").description("An array of posts"),
                                 fieldWithPath("[].id").description("UUID of the post"),
                                 fieldWithPath("[].title").description("Title of the post"),
+                                fieldWithPath("[].username").description("Username of the user"),
                                 fieldWithPath("[].body").description("Body of the post"),
                                 fieldWithPath("[].createdAt")
                                         .description("Date at which post is created"),
@@ -89,6 +90,23 @@ class PostControllerTest {
                         )));
 
         verify(postService, times(1)).findAll(any(Pageable.class));
+    }
+
+    @Test
+    void findAllByUsername() throws Exception {
+        given(postService.findAllByUsername(anyString())).willReturn(getPostList());
+
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/post/username/{username}",
+                                "Anonymous")
+                        .accept("application/json"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andDo(document("post/{methodName}",
+                        preprocessResponse(prettyPrint()),
+                        pathParameters(
+                                parameterWithName("username")
+                                        .description("Username of the user who created the post")
+                        )));
     }
 
     @Test
@@ -133,6 +151,7 @@ class PostControllerTest {
                         responseFields(
                                 fieldWithPath("id").description("UUID of the post"),
                                 fieldWithPath("title").description("Title of the post"),
+                                fieldWithPath("username").description("Username of the user"),
                                 fieldWithPath("body").description("Body of the post"),
                                 fieldWithPath("createdAt")
                                         .description("Date at which post is created"),
@@ -196,6 +215,7 @@ class PostControllerTest {
                         requestFields(
                                 fields.withPath("id").ignored(),
                                 fields.withPath("title").description("Title of the post"),
+                                fields.withPath("username").description("Username of the user"),
                                 fields.withPath("body").description("Body of the post"),
                                 fields.withPath("createdAt").ignored(),
                                 fields.withPath("updatedAt").ignored(),
@@ -236,6 +256,7 @@ class PostControllerTest {
                         requestFields(
                                 fields.withPath("id").description("UUID of the post"),
                                 fields.withPath("title").description("Title of the post"),
+                                fields.withPath("username").description("Username of the post"),
                                 fields.withPath("body").description("Body of the post"),
                                 fields.withPath("createdAt")
                                         .description("Date at which post is created"),
@@ -256,6 +277,7 @@ class PostControllerTest {
         return PostDTO.builder()
                 .id(POST_ID)
                 .title("What is Lorem Ipsum?")
+                .username("Anonymous")
                 .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
                 .createdAt(OffsetDateTime.now())
                 .updatedAt(OffsetDateTime.now())
@@ -270,6 +292,7 @@ class PostControllerTest {
         return PostDTO.builder()
                 .id(POST_ID)
                 .title("What is Lorem Ipsum?")
+                .username("Anonymous")
                 .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
                 .category(getCategory("News"))
                 .build();
@@ -278,6 +301,7 @@ class PostControllerTest {
     private PostDTO getPostToSave() {
         return PostDTO.builder()
                 .title("What is Lorem Ipsum?")
+                .username("Anonymous")
                 .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
                 .img("https://www.google.com")
                 .category(getCategory("News"))
@@ -289,6 +313,7 @@ class PostControllerTest {
                 PostDTO.builder()
                         .id(UUID.randomUUID())
                         .title("Where does it come from?")
+                        .username("Anonymous")
                         .body("Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots " +
                                 "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                                 "Richard McClintock")
@@ -302,6 +327,7 @@ class PostControllerTest {
                 PostDTO.builder()
                         .id(UUID.randomUUID())
                         .title("What is Lorem Ipsum?")
+                        .username("Anonymous")
                         .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
                         .createdAt(OffsetDateTime.now())
                         .updatedAt(OffsetDateTime.now())

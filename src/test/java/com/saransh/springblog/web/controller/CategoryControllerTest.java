@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @ExtendWith(RestDocumentationExtension.class)
 @WebMvcTest(CategoryController.class)
-@AutoConfigureRestDocs(uriScheme = "https", uriHost = "spring-bloged.herokuapp.com", uriPort = 80)
+@AutoConfigureRestDocs(uriScheme = "https", uriHost = "spring-bloged.herokuapp.com", uriPort = 443)
 class CategoryControllerTest {
 
     @Autowired
