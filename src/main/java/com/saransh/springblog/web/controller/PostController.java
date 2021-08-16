@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +33,15 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity<List<PostDTO>> findAll(@RequestParam("page") int pageNo) {
-        List<PostDTO> posts = postService.findAll(PageRequest.of(pageNo, PAGE_SIZE));
+        List<PostDTO> posts = postService.findAll(getPageRequest(pageNo));
         return ResponseEntity.ok().body(posts);
+    }
+
+    @GetMapping("/trending")
+    public ResponseEntity<List<PostDTO>> findAllByViews(@RequestParam("page") int pageNo) {
+        return ResponseEntity.ok().body(
+                postService.findAll(getTrendingPageRequest(pageNo))
+        );
     }
 
     @GetMapping("/username/{username}")
@@ -48,7 +57,7 @@ public class PostController {
             @RequestParam("page") int pageNo
     ) {
         List<PostDTO> posts = postService.findAllByCategory(
-                PageRequest.of(pageNo, PAGE_SIZE),
+                getPageRequest(pageNo),
                 categoryName);
         return ResponseEntity.ok().body(posts);
     }
@@ -63,8 +72,8 @@ public class PostController {
             @RequestParam String title,
             @RequestParam("page") int pageNo
     ) {
-        List<PostDTO> posts = postService.findAllByTitle(PageRequest.of(
-                        pageNo, PAGE_SIZE),
+        List<PostDTO> posts = postService.findAllByTitle(
+                getPageRequest(pageNo),
                 title);
         return ResponseEntity.ok().body(posts);
     }
@@ -91,5 +100,13 @@ public class PostController {
         PostDTO savedPost = postService.update(postId, postDTO);
         log.debug("Post with Id: {} updated successfully", postId);
         return ResponseEntity.ok().body(savedPost);
+    }
+
+    private Pageable getPageRequest(int pageNo) {
+        return PageRequest.of(pageNo, PAGE_SIZE, Sort.Direction.DESC, "createdAt");
+    }
+
+    private Pageable getTrendingPageRequest(int pageNo) {
+        return PageRequest.of(pageNo, PAGE_SIZE, Sort.Direction.DESC, "views");
     }
 }
