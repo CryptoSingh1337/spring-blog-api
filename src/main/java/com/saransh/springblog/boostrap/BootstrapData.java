@@ -185,7 +185,7 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .username("Aditya")
-                    .createdAt(LocalDateTime.now().minusMonths(5))
+                    .createdAt(LocalDateTime.now().minusDays(10).minusYears(2))
                     .views(1754L)
                     .build();
 
@@ -195,7 +195,7 @@ public class BootstrapData implements CommandLineRunner {
                             "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud " +
                             "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                     .username("Aditya")
-                    .createdAt(LocalDateTime.now().minusMonths(5))
+                    .createdAt(LocalDateTime.now().minusMonths(10).minusYears(5))
                     .views(1528L)
                     .build();
 
@@ -206,7 +206,7 @@ public class BootstrapData implements CommandLineRunner {
                             "system, and expound the actual teachings of the great explorer of the truth, " +
                             "the master-builder of human happiness.")
                     .username("Saransh")
-                    .createdAt(LocalDateTime.now().minusMonths(5))
+                    .createdAt(LocalDateTime.now().minusMonths(12))
                     .views(985L)
                     .build();
 
