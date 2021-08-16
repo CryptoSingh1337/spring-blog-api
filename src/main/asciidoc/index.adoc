@@ -57,6 +57,8 @@ include::{snippets}/post/findAll/http-response.adoc[]
 
 === Get all the Post by Views
 
+This method return all the post sorted by views in descending order.
+
 === Request
 
 include::{snippets}/post/findAllByViews/http-request.adoc[]
