@@ -55,6 +55,16 @@ include::{snippets}/post/findAll/http-request.adoc[]
 
 include::{snippets}/post/findAll/http-response.adoc[]
 
+=== Get all the Post by Views
+
+=== Request
+
+include::{snippets}/post/findAllByViews/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/post/findAllByViews/http-response.adoc[]
+
 === Get all the Post by Username
 
 This method returns all the post having the username.
