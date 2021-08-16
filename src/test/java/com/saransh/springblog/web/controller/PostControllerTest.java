@@ -17,8 +17,10 @@ import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.OffsetDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -93,6 +95,19 @@ class PostControllerTest {
     }
 
     @Test
+    void findAllByViews() throws Exception {
+        given(postService.findAll(any(Pageable.class))).willReturn(getPostListSortedByViews());
+
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/post/trending")
+                        .param("page", "0")
+                        .accept("application/json"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andDo(document("post/{methodName}",
+                        preprocessResponse(prettyPrint())));
+    }
+
+    @Test
     void findAllByUsername() throws Exception {
         given(postService.findAllByUsername(anyString())).willReturn(getPostList());
 
@@ -107,6 +122,7 @@ class PostControllerTest {
                                 parameterWithName("username")
                                         .description("Username of the user who created the post")
                         )));
+        verify(postService, times(1)).findAll(any(Pageable.class));
     }
 
     @Test
@@ -337,6 +353,12 @@ class PostControllerTest {
                         .category(getCategory("Lifestyle"))
                         .build()
         );
+    }
+
+    private List<PostDTO> getPostListSortedByViews() {
+        return getPostList().stream()
+                .sorted(Comparator.comparingLong(PostDTO::getViews))
+                .collect(Collectors.toList());
     }
 
     private CategoryDTO getCategory(String name) {
