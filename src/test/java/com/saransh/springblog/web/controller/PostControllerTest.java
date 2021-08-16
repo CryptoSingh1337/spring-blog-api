@@ -122,7 +122,7 @@ class PostControllerTest {
                                 parameterWithName("username")
                                         .description("Username of the user who created the post")
                         )));
-        verify(postService, times(1)).findAll(any(Pageable.class));
+        verify(postService, times(1)).findAllByUsername(anyString());
     }
 
     @Test
