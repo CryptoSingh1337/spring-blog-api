@@ -59,11 +59,11 @@ include::{snippets}/post/findAll/http-response.adoc[]
 
 This method return all the post sorted by views in descending order.
 
-=== Request
+==== Request
 
 include::{snippets}/post/findAllByViews/http-request.adoc[]
 
-=== Response
+==== Response
 
 include::{snippets}/post/findAllByViews/http-response.adoc[]
 
@@ -71,15 +71,15 @@ include::{snippets}/post/findAllByViews/http-response.adoc[]
 
 This method returns all the post having the username.
 
-=== Path Parameter
+==== Path Parameter
 
 include::{snippets}/post/findAllByUsername/path-parameters.adoc[]
 
-=== Request
+==== Request
 
 include::{snippets}/post/findAllByUsername/http-request.adoc[]
 
-=== Response
+==== Response
 
 include::{snippets}/post/findAllByUsername/http-response.adoc[]
 
