@@ -4,10 +4,7 @@ import com.saransh.springblog.service.CategoryService;
 import com.saransh.springblog.web.model.CategoryDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +12,7 @@ import java.util.List;
  * Created by CryptSingh1337 on 8/2/2021
  */
 @RequiredArgsConstructor
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/category")
 public class CategoryController {

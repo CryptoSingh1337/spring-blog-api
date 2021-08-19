@@ -19,6 +19,7 @@ import static org.springframework.http.HttpStatus.OK;
  */
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/comment/{postId}")
 public class CommentController {

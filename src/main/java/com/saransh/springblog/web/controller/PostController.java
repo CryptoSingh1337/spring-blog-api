@@ -23,6 +23,7 @@ import java.util.UUID;
  */
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/post")
 public class PostController {
