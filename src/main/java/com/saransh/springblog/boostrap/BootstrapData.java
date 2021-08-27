@@ -116,6 +116,7 @@ public class BootstrapData implements CommandLineRunner {
                     .body("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem " +
                             "book. It has survived not only five centuries")
                     .username("John")
+                    .img("https://source.unsplash.com/random/?fashion")
                     .createdAt(LocalDateTime.now())
                     .views(15865L)
                     .build();
@@ -157,6 +158,7 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .username("William")
+                    .img("https://source.unsplash.com/random/?personal")
                     .createdAt(LocalDateTime.now().minusMonths(10))
                     .views(20589L)
                     .build();
@@ -167,6 +169,7 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .username("Saransh")
+                    .img("https://source.unsplash.com/random/?technology")
                     .createdAt(LocalDateTime.now().minusMonths(5))
                     .views(245864L)
                     .build();
@@ -185,6 +188,7 @@ public class BootstrapData implements CommandLineRunner {
                             "in a piece of classical Latin literature from 45 BC, making it over 2000 years old. " +
                             "Richard McClintock")
                     .username("Aditya")
+                    .img("https://source.unsplash.com/random/?personal")
                     .createdAt(LocalDateTime.now().minusDays(10).minusYears(2))
                     .views(1754L)
                     .build();
@@ -195,6 +199,7 @@ public class BootstrapData implements CommandLineRunner {
                             "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud " +
                             "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                     .username("Aditya")
+                    .img("https://source.unsplash.com/random/?gaming")
                     .createdAt(LocalDateTime.now().minusMonths(10).minusYears(5))
                     .views(1528L)
                     .build();
@@ -206,6 +211,7 @@ public class BootstrapData implements CommandLineRunner {
                             "system, and expound the actual teachings of the great explorer of the truth, " +
                             "the master-builder of human happiness.")
                     .username("Saransh")
+                    .img("https://source.unsplash.com/random/?news")
                     .createdAt(LocalDateTime.now().minusMonths(12))
                     .views(985L)
                     .build();
