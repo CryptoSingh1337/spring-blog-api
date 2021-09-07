@@ -1,3 +1,5 @@
+### Note: This API is deployed on Heroku, so initially it will take time to load.
+
 # Spring Blog API
 
 RESTful CRUD API for a Blog using Spring Boot, MySQL, JPA and Hibernate.
