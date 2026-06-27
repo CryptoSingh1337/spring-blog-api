@@ -4,11 +4,13 @@
 
 RESTful CRUD API for a Blog using Spring Boot, MySQL, JPA and Hibernate.
 
-[![Issues Closed](https://img.shields.io/github/issues-closed/CryptoSingh1337/spring-blog-api?color=red)](https://github.com/CryptoSingh1337/spring-blog-api/issues?q=is%3Aissue+is%3Aclosed)
-[![Issues Open](https://img.shields.io/github/issues/CryptoSingh1337/spring-blog-api?color=green)](https://github.com/CryptoSingh1337/spring-blog-api/issues)
-[![PRs Open](https://img.shields.io/github/issues-pr/CryptoSingh1337/spring-blog-api)](https://github.com/CryptoSingh1337/spring-blog-api/pulls)
-![Last Commit](https://img.shields.io/github/last-commit/CryptoSingh1337/spring-blog-api?color=informational)
-![PRs Welcome](https://img.shields.io/badge/prs-welcome-ff69b4)
+<p>
+  <a href="https://github.com/CryptoSingh1337/spring-blog-api/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/CryptoSingh1337/spring-blog-api?color=red" alt="Issues Closed"></a>
+  <a href="https://github.com/CryptoSingh1337/spring-blog-api/issues"><img src="https://img.shields.io/github/issues/CryptoSingh1337/spring-blog-api?color=green" alt="Issues Open"></a>
+  <a href="https://github.com/CryptoSingh1337/spring-blog-api/pulls"><img src="https://img.shields.io/github/issues-pr/CryptoSingh1337/spring-blog-api" alt="PRs Open"></a>
+  <a href="https://github.com/CryptoSingh1337/spring-blog-api/commits"><img src="https://img.shields.io/github/last-commit/CryptoSingh1337/spring-blog-api?color=informational" alt="Last Commit"></a>
+  <a href="https://github.com/CryptoSingh1337/spring-blog-api/pulls"><img src="https://img.shields.io/badge/prs-welcome-ff69b4" alt="PRs Welcome"></a>
+</p>
 
 ## Run Locally
 
